@@ -14,8 +14,15 @@ from markdown import Markdown
 from markdown.inlinepatterns import SimpleTagInlineProcessor
 from markdown.extensions import Extension
 from random import shuffle
+from datetime import datetime
+import pytz
 
 # ------ funciones generales
+def fecha_de_actualizacion():
+    arg_tz = pytz.timezone('America/Argentina/Buenos_Aires')
+    ahora = datetime.now(arg_tz)
+    return ahora.strftime("%Y-%m-%d %H:%M:%S")
+
 def md_a_html(texto):
     global dat_cfg
     global env_jinja2
@@ -48,7 +55,7 @@ def actualizar_paginas():
     for ar in [a for a in listdir(ruta_in) if a.endswith('.yml')]:
         print('Página: ', ar)
 
-        dat_cfg['actualizacion'] = strftime("%Y-%m-%d %H:%M:%S", gmtime())
+        dat_cfg['actualizacion'] = fecha_de_actualizacion()
         dat_cfg['cache_actu'] = int(time_ns() / 1000)
         dat_pag = leer_yml(f'{ruta_in}{ar}')
 
