@@ -53,10 +53,22 @@ body.bloqueado {
 .utiles {
   position: fixed;
   right: 0;
-  top: 100px;
+  top: 50%;
   width: 40px;
   text-align: right;
-  padding: 10px;
+}
+.utiles nav {
+  position: absolute;
+  top: -80px !important;
+  right: 0;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 6px 6px;
+  border-top-left-radius: 9px;
+  border-bottom-left-radius: 9px;
+  transition: all 0.1s;
+}
+.utiles nav:hover {
+  background: #000000;
 }
 .utiles * {
   display: inline-block;
@@ -68,9 +80,4 @@ footer {
 }
 footer p {
   color: #666;
-}
-@media (max-width: 800px) {
-  .en-2-columnas div.item {
-    width: 100%;
-  }
 }

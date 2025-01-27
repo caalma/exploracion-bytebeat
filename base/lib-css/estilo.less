@@ -31,30 +31,27 @@ body {
 
 .lista-bb {
     color: #eee;
-
     .codigos {
         input[type=number] {
             width: 100px;
             border: none;
         }
-    code {
-        color: #8f4;
-        background: #222;
-        border-radius: 8px;
-        cursor: pointer;
-        border: 1px transparent;
+        code {
+            color: #8f4;
+            background: #222;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 1px transparent;
 
-        &:focus {
-            border-color: #aaa;
-        }
-        &:hover {
-            background: #000;
-            transition: all 0.5s;
+            &:focus {
+                border-color: #aaa;
+            }
+            &:hover {
+                background: #000;
+                transition: all 0.5s;
+            }
         }
     }
-
-    }
-
 }
 
 .copiado::before {
@@ -68,10 +65,24 @@ body {
 .utiles {
     position: fixed;
     right: 0;
-    top: 100px;
+    top: 50%;
     width: 40px;
     text-align: right;
-    padding: 10px;
+
+    nav {
+        position: absolute;
+        top: -80px!important;
+        right: 0;
+        background: rgba(0, 0, 0, 0.2);
+        padding: 6px 6px;
+        border-top-left-radius: 9px;
+        border-bottom-left-radius: 9px;
+        transition: all 0.1s;
+
+        &:hover {
+            background: rgba(0, 0, 0, 1);
+        }
+    }
 
     * {
         display: inline-block;
@@ -86,5 +97,6 @@ footer {
         color: #666;
     }
 }
+
 
 @import url("responsive.less");

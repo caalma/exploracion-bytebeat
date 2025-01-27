@@ -212,7 +212,7 @@ lista_bb:
     query_greggman: t=0&s=8000&e=1&bb=5d00000100280000000000000000188d402ff9dd4be517308b119e8f5cfb8643aceae48bbe4d1ea05218c232c053afa950cc5496b9ffa87e8000
     show: true
     comment: |
-      Variantes de código creado propuesto por [eypacha](https://github.com/eypacha).
+      Variantes de código creado propuesto por [Ey Pacha](https://github.com/eypacha).
 
   - code:
       - t t 11 >> 25 ^ >> t << 32640 ^ t 6 >> <<
@@ -221,7 +221,7 @@ lista_bb:
     query_greggman: t=0&e=1&s=11000&bb=5d000001002b0000000000000000101d1d0462302475685937ed6f06bf63cd73a227c25b14bb003d8a1953cd45bf92fdb9fcd32ffec60a00
     show: true
     comment: |
-      La primera es autoria de [eypacha](https://github.com/eypacha), la segunda es un variante personal.
+      La primera es autoria de [Ey Pacha](https://github.com/eypacha), la segunda es un variante personal.
 
   - code:
       - t 0.5 * t -0.3 * + t 0.4 * & t -0.14 * +

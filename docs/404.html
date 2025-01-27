@@ -13,11 +13,11 @@
 
         <meta content="Exploración sobre ByteBeat. Caalma." name="description">
 	    <meta content="index, follow" name="robots">
-	    <link rel="canonical" href="https://caalma.github.io/exploracion-bytebeat/">
-	    <link rel="image_src" href="https://caalma.github.io/exploracion-bytebeat/favicon.svg">
+	    <link rel="canonical" href="/">
+	    <link rel="image_src" href="/favicon.svg">
 
-	    <meta property="og:image" content="https://caalma.github.io/exploracion-bytebeat/favicon.svg">
-		<meta property="og:image:secure_url" content="https://caalma.github.io/exploracion-bytebeat/favicon.svg">
+	    <meta property="og:image" content="/favicon.svg">
+		<meta property="og:image:secure_url" content="/favicon.svg">
 	    <meta property="og:image:type" content="image/svg">
 		<meta property="og:image:width" content="256" />
 		<meta property="og:image:height" content="256" />
@@ -35,14 +35,13 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
 
-        <link href="https://caalma.github.io/exploracion-bytebeat/lib/css/estilo.css?1737948390524154" rel="stylesheet">
+        <link href="/lib/css/estilo.css?1737986127802841" rel="stylesheet">
 
         <!-- iconos -->
-        <link rel="shortcut icon" href="https://caalma.github.io/exploracion-bytebeat/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
         <!-- script -->
-        <script src="https://caalma.github.io/exploracion-bytebeat/lib/js/lzma.js"></script>
-
+        <script src="/lib/js/lzma.js"></script>
     </head>
     <body>
         <div class="contenido">
@@ -56,7 +55,7 @@
 <script>
  window.addEventListener('load', ev => {
      setTimeout(()=>{
-         window.location.href = 'https://caalma.github.io/exploracion-bytebeat/';
+         window.location.href = '/';
      }, 2000);
  })
 </script>
@@ -68,11 +67,14 @@
             <p class="text-center">
                 <a class="btn btn-sm text-success"  href="https://caalma.net.ar">Por CAALMA</a>
                 ·
-                <span class="small px-2">Actualizado el <b>2025-01-27 00:26:30</b></span>
+                <span class="small px-2">Actualizado el <b>2025-01-27 10:55:27</b></span>
                 ·
                 <a class="btn btn-sm text-success"  href="https://github.com/caalma/exploracion-bytebeat">Disponible en GITHUB </a>
             </p>
         </footer>
-        <script src="https://caalma.github.io/exploracion-bytebeat/lib/js/init.js" type="module"></script>
+        <script>
+         const compressor = new LZMA( '/lib/js/lzma_worker.js' );
+        </script>
+        <script src="/lib/js/init.js" type="module"></script>
     </body>
 </html>

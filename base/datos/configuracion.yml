@@ -11,11 +11,11 @@ metadatos:
   favicon: 'favicon.ico'
 
 urls:
-  #site: '/'
-  site: 'https://caalma.github.io/exploracion-bytebeat/'
+  site: '/'
+  #site: 'https://caalma.github.io/exploracion-bytebeat/'
   github_del_proyecto: 'https://github.com/caalma/exploracion-bytebeat'
   web_del_autor: 'https://caalma.net.ar'
 
 reproductores:
-  touchtbit: ['https://dev.eypacha.com/touchbit/#', Touchbit, T]
-  html5bytebeat: ['https://greggman.com/downloads/examples/html5bytebeat/html5bytebeat.html#', HTML5Bytebeat, G]
+  touchtbit: ['https://dev.eypacha.com/touchbit/', Touchbit, T]
+  html5bytebeat: ['https://greggman.com/downloads/examples/html5bytebeat/html5bytebeat.html', HTML5Bytebeat, G]

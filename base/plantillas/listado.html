@@ -11,7 +11,7 @@
     </div>
 
     <div>
-        <ul class="lista-bb">
+        <ul class="lista-bb p-0">
             {% for item in pag.lista_bb %}
             {% if item.show %}
             <li class="list-group my-3 py-2">
@@ -22,7 +22,7 @@
                 <div class="d-grid gap-2 codigos">
                     {% for code in item.code %}
                     <div class="d-flex">
-                        <code class="d-block p-2 text-light copiar col-10"
+                        <code class="d-block p-2 text-light col copiar "
                               contenteditable="true"
                               data-query_greggman="{{ item.query_greggman }}"
                               title="Click para COPIAR y ACTIVAR">{{ code }}</code>
@@ -36,20 +36,22 @@
 
             {% if pag.lista_bb | count %}
             <div class="utiles">
-                <a class="btn btn-sm btn-secondary my-1"
-                   href="#"
-                   name="externalApp"
-                   data-site="{{ cfg.reproductores.touchtbit[0] }}"
-                   target="_tbit" title="Abrir en {{ cfg.reproductores.touchtbit[1] }}">
+                <nav class="d-grid gap-1">
+                    <a class="btn btn-sm btn-secondary"
+                       href="#"
+                       name="externalApp"
+                       data-site="{{ cfg.reproductores.touchtbit[0] }}"
+                       target="_tbit" title="Abrir en {{ cfg.reproductores.touchtbit[1] }}">
 
-                    {{ cfg.reproductores.touchtbit[2] }}</a>
-                <a class="btn btn-sm btn-secondary"
-                   href="#"
-                   name="externalApp"
-                   data-site="{{ cfg.reproductores.html5bytebeat[0] }}"
-                   target="_h5bb" title="Abrir en {{ cfg.reproductores.html5bytebeat[1] }}">
-                    {{ cfg.reproductores.html5bytebeat[2] }}</a>
-                <button class="btn btn-sm btn-secondary my-1" name="play-pause" title="Audio: Play Pause">P</button>
+                        {{ cfg.reproductores.touchtbit[2] }}</a>
+                    <a class="btn btn-sm btn-secondary"
+                       href="#"
+                       name="externalApp"
+                       data-site="{{ cfg.reproductores.html5bytebeat[0] }}"
+                       target="_h5bb" title="Abrir en {{ cfg.reproductores.html5bytebeat[1] }}">
+                        {{ cfg.reproductores.html5bytebeat[2] }}</a>
+                    <button class="btn btn-sm btn-secondary" name="play-pause" title="Audio: Play Pause">P</button>
+                </nav>
             </div>
 
             {% endif %}

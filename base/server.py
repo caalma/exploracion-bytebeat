@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 
-from livereload import Server, shell
-from os import chdir
 import webbrowser
+from livereload import Server, shell
 from actualizar import actualizar_todo
 
 def main():
@@ -12,11 +11,10 @@ def main():
     actualizar_todo()
 
     # variables básicas
-    h, p, l = '127.0.0.1', 8095, 35729
-    url = f'http://{h}:{p}'
+    h, p, l = '127.0.0.1', 8099, 35729
 
     # apertura en navegador predeterminado local
-    webbrowser.open(url)
+    webbrowser.open(f'http://{h}:{p}')
 
     # definicion del server
     server = Server()
@@ -24,12 +22,10 @@ def main():
     # documentos donde considerar cambios automáticos
     server.watch('./datos/', shell('./actualizar.py'))
     server.watch('./plantillas/', shell('./actualizar.py'))
-
     server.watch('./lib-css/', shell('lessc ./lib-css/estilo.less', output='../docs/lib/css/estilo.css'))
-
     server.watch('../docs/lib/', shell(''))
     server.watch('../docs/lib/css/', shell(''))
-    server.watch('../docs/rec/', shell(''))
+    server.watch('../docs/lib/js/', shell(''))
 
     # cabeceras generales locales
     server.setHeader('Access-Control-Allow-Origin', '*')

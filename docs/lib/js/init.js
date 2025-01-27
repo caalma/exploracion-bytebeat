@@ -1,15 +1,16 @@
 //import ByteBeatNode from 'https://greggman.github.io/html5bytebeat/dist/2.x/ByteBeat.module.js';
 import ByteBeatNode from './ByteBeat.module.js';
-import compressor from './compressor.js';
+//import compressor from './compressor.js';
 import {
   convertBytesToHex,
   convertHexToBytes,
-  makeExposedPromise,
-  splitBySections,
-  s_beatTypes,
-  s_expressionTypes,
+//  makeExposedPromise,
+//  splitBySections,
+//  s_beatTypes,
+//  s_expressionTypes,
 } from './utils.js';
 
+//const compressor = new LZMA( './lzma_worker.js' );
 
 let doNotSetURL = false;
 let g_ignoreHashChange;
@@ -21,8 +22,9 @@ let g_bb_code_l = '';
 let g_bb_code_r = '';
 let g_actual_code = '';
 
+
 function getURL(fn=()=>{}) {
-    compressor.compress(g_bb_code_l, 1,
+    compressor.compress(g_actual_code, 1,
                         function(bytes) {
                             const hex = convertBytesToHex(bytes);
                             g_ignoreHashChange = true;
@@ -47,7 +49,7 @@ async function init() {
     g_byteBeatNode.setType(ByteBeatNode.Type.byteBeat);
     g_byteBeatNode.setExpressionType(ByteBeatNode.ExpressionType.postfix);
     g_byteBeatNode.setDesiredSampleRate(parseInt(g_bb_rate));
-    updateCode();
+    await updateCode();
 }
 
 async function reinit() {
@@ -128,30 +130,36 @@ function copiarAlPortapapeles(texto) {
      }
 }
 
-function configureBtnExternalApp(query){
-    let elems = document.querySelectorAll('[name=externalApp]');
-    if(query !== 'None'){
-        elems.forEach(elem => {
-            elem.classList.add('btn-success');
-            elem.classList.remove('btn-secondary');
-            let url = elem.getAttribute('data-site') + query;
-            elem.setAttribute('href', url);
+function configureExternalsApp(){
+    setTimeout(()=>{
+        bb.reinit();
+        getURL(query => {
+            let elems = document.querySelectorAll('[name=externalApp]');
+            if(query !== 'None'){
+                elems.forEach(elem => {
+                    elem.classList.add('btn-success');
+                    elem.classList.remove('btn-secondary');
+                    let url = elem.getAttribute('data-site') + query;
+                    elem.setAttribute('href', url);
+                });
+            }else{
+                elems.forEach(elem => {
+                    elem.classList.add('btn-secondary');
+                    elem.classList.remove('btn-success');
+                });
+            }
         });
-    }else{
-        elems.forEach(elem => {
-            elem.classList.add('btn-secondary');
-            elem.classList.remove('btn-success');
-        });
-    }
+    }, 100);
 }
 
-window.addEventListener('load', ev => {
+function load_w (ev) {
     window.bb = {
+        'init': init,
+        'reinit': reinit,
         'setCode': asyncSetCode,
         'setRate': asyncSetRate,
         'playPause': playPause,
         'info': info,
-        'reinit': reinit,
         'getURL': getURL,
         'isplay': () => g_playing,
     };
@@ -181,13 +189,10 @@ window.addEventListener('load', ev => {
     if(btnPlayPause){
         btnPlayPause.addEventListener('click', e => {
             let elem = btnPlayPause;
-
             if(elem.classList.contains('btn-secondary')){
                 return;
             }
-
             bb.playPause();
-            bb.setCode(g_actual_code);
             if(bb.isplay()){
                 elem.classList.add('btn-danger');
                 elem.classList.remove('btn-warning');
@@ -203,14 +208,11 @@ window.addEventListener('load', ev => {
             ['click', 'change'].forEach(evType => {
                 elem.addEventListener(evType, ev => {
                     g_bb_rate = parseInt(elem.parentElement.querySelector('[name=rate]').value);
-                    try {
-                        bb.setRate(g_bb_rate);
-                    } catch(err) { }
+                    try { bb.setRate(g_bb_rate); } catch (err) { }
                     g_actual_code = elem.textContent;
                     bb.setCode(g_actual_code);
-
-                    configureBtnExternalApp(elem.getAttribute('data-query_greggman'));
                     playPauseActivate();
+                    configureExternalsApp();
                 });
             });
         });
@@ -218,12 +220,16 @@ window.addEventListener('load', ev => {
 
     if(inputRate.length > 0){
         inputRate.forEach(elem => {
-            ['change', 'click', 'keydown'].forEach(evType => {
+            ['change', 'click', 'keyup'].forEach(evType => {
                 elem.addEventListener(evType, ev => {
-                    bb.setRate(parseInt(elem.value));
+                    if(g_context){
+                        bb.setRate(parseInt(elem.value));
+                        configureExternalsApp();
+                    }
                 });
             });
         });
     }
+}
 
-});
+window.addEventListener('load', load_w);
