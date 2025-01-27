@@ -222,11 +222,11 @@ function on_load (ev) {
                 });
             });
             elem.addEventListener('keydown', ev => {
-                console.log(ev.key);
-                //setCodeActual(elem);
-                //playPauseActivate();
-                //configureExternalsApp();
-
+                if(ev.key == 'Enter' && ev.altKey){
+                    setCodeActual(elem);
+                    playPauseActivate();
+                    configureExternalsApp();
+                }
             });
         });
     }
