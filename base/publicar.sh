@@ -10,4 +10,4 @@ git push
 
 cd $R
 
-xdg-open "https://posversobienal.com.ar/"
+xdg-open "https://caalma.github.io/exploracion-bytebeat/"
