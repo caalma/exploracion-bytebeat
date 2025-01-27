@@ -3,14 +3,14 @@
 {% block body %}
 <div class="container">
     <div class="my-1 text-center">
-        <div class="fs-4 text-center p-3">¡ no existe nada aquí !</div>
+        <div class="fs-4 text-center p-3 text-danger">¡ no existe nada aquí !</div>
     </div>
 </div>
 
 <script>
  window.addEventListener('load', ev => {
      setTimeout(()=>{
-         window.location.href = '/';
+         window.location.href = '{{ cfg.urls.site }}';
      }, 2000);
  })
 </script>

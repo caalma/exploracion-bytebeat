@@ -1,7 +1,6 @@
 //import ByteBeatNode from 'https://greggman.github.io/html5bytebeat/dist/2.x/ByteBeat.module.js';
 import ByteBeatNode from './ByteBeat.module.js';
 import compressor from './compressor.js';
-
 import {
   convertBytesToHex,
   convertHexToBytes,
@@ -147,7 +146,7 @@ function configureBtnExternalApp(query){
 }
 
 window.addEventListener('load', ev => {
-    let bb = {
+    window.bb = {
         'setCode': asyncSetCode,
         'setRate': asyncSetRate,
         'playPause': playPause,
@@ -157,65 +156,74 @@ window.addEventListener('load', ev => {
         'isplay': () => g_playing,
     };
 
-    window.bb = bb;
-
     let btnPlayPause = document.querySelector('[name=play-pause]');
     let inputRate = document.querySelectorAll('[name=rate]');
+    let codes = document.querySelectorAll('code');
+    let elemsCopiar = document.querySelectorAll('.copiar');
 
     let playPauseActivate = () => {
         btnPlayPause.classList.remove('btn-secondary');
         btnPlayPause.classList.add('btn-warning');
     };
 
-    document.querySelectorAll('.copiar').forEach(elem => {
-        elem.addEventListener('click', ev => {
-            copiarAlPortapapeles(elem.innerText);
-            elem.classList.add('copiado');
-            setTimeout(()=>{
-                elem.classList.remove('copiado');
-            }, 700);
-        });
-    });
-
-    btnPlayPause.addEventListener('click', e => {
-        let elem = btnPlayPause;
-
-        if(elem.classList.contains('btn-secondary')){
-            return;
-        }
-
-        bb.playPause();
-        bb.setCode(g_actual_code);
-        if(bb.isplay()){
-            elem.classList.add('btn-danger');
-            elem.classList.remove('btn-warning');
-        }else{
-            elem.classList.add('btn-warning');
-            elem.classList.remove('btn-danger');
-        }
-    });
-
-    document.querySelectorAll('code').forEach(elem => {
-        ['click', 'change'].forEach(evType => {
-            elem.addEventListener(evType, ev => {
-                g_bb_rate = parseInt(elem.parentElement.querySelector('[name=rate]').value);
-                try {
-                    bb.setRate(g_bb_rate);
-                } catch(err) { }
-                g_actual_code = elem.textContent;
-                bb.setCode(g_actual_code);
-
-                configureBtnExternalApp(elem.getAttribute('data-query_greggman'));
-                playPauseActivate();
+    if(elemsCopiar.length > 0){
+        elemsCopiar.forEach(elem => {
+            elem.addEventListener('click', ev => {
+                copiarAlPortapapeles(elem.innerText);
+                elem.classList.add('copiado');
+                setTimeout(()=>{
+                    elem.classList.remove('copiado');
+                }, 700);
             });
         });
-    });
+    }
 
-    inputRate.forEach(elem => {
-        ['change', 'click', 'keydown'].forEach(evType => {
-            elem.addEventListener(evType, ev => {
-                bb.setRate(parseInt(elem.value));
+    if(btnPlayPause){
+        btnPlayPause.addEventListener('click', e => {
+            let elem = btnPlayPause;
+
+            if(elem.classList.contains('btn-secondary')){
+                return;
+            }
+
+            bb.playPause();
+            bb.setCode(g_actual_code);
+            if(bb.isplay()){
+                elem.classList.add('btn-danger');
+                elem.classList.remove('btn-warning');
+            }else{
+                elem.classList.add('btn-warning');
+                elem.classList.remove('btn-danger');
+            }
+        });
+    }
+
+    if(codes.length > 0){
+        codes.forEach(elem => {
+            ['click', 'change'].forEach(evType => {
+                elem.addEventListener(evType, ev => {
+                    g_bb_rate = parseInt(elem.parentElement.querySelector('[name=rate]').value);
+                    try {
+                        bb.setRate(g_bb_rate);
+                    } catch(err) { }
+                    g_actual_code = elem.textContent;
+                    bb.setCode(g_actual_code);
+
+                    configureBtnExternalApp(elem.getAttribute('data-query_greggman'));
+                    playPauseActivate();
+                });
             });
         });
-    });
-})
+    }
+
+    if(inputRate.length > 0){
+        inputRate.forEach(elem => {
+            ['change', 'click', 'keydown'].forEach(evType => {
+                elem.addEventListener(evType, ev => {
+                    bb.setRate(parseInt(elem.value));
+                });
+            });
+        });
+    }
+
+});
