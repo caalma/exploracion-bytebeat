@@ -17,6 +17,7 @@
                 <div class="d-grid gap-2 codigos">
                     {% for code in item.code %}
                     <div class="d-flex">
+                        <small class="p-2 text-secondary">{{ loop.index }}. </small>
                         <code class="d-block p-2 text-light col copiar "
                               contenteditable="true"
                               title="Click para COPIAR y ACTIVAR">{{ code[0] }}</code>
