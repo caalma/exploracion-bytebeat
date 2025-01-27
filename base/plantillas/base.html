@@ -9,7 +9,6 @@
     {% set titulo = cfg.metadatos.titulo + pag_titulo %}
     {% set url_img_compartir =  cfg.urls.site + cfg.metadatos.imagen_compartir  %}
 
-    <script src="/lib/js/lzma.js"></script>
 
     <head>
         <meta charset="utf-8">
@@ -47,9 +46,11 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
 
-        <link href="/lib/css/estilo.css?{{ cfg.cache_actu }}" rel="stylesheet">
+        <link href="{{ cfg.urls.site }}lib/css/estilo.css?{{ cfg.cache_actu }}" rel="stylesheet">
 
         <link rel="shortcut icon" href="{{ cfg.metadatos.favicon }}" type="image/x-icon" />
+
+        <script src="{{ cfg.urls.site }}lib/js/lzma.js"></script>
 
     </head>
     <body>
@@ -66,6 +67,6 @@
                 <a class="btn btn-sm text-success"  href="{{ cfg.urls.github_del_proyecto }}">Disponible en GITHUB </a>
             </p>
         </footer>
-        <script src="/lib/js/init.js" type="module"></script>
+        <script src="{{ cfg.urls.site }}lib/js/init.js" type="module"></script>
     </body>
 </html>

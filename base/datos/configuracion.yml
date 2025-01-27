@@ -11,9 +11,10 @@ metadatos:
   favicon: '/favicon.svg'
 
 urls:
+  #site: '/'
   site: 'https://caalma.github.io/exploracion-bytebeat/'
+  github_del_proyecto: 'https://github.com/caalma/exploracion-bytebeat'
   web_del_autor: 'https://caalma.net.ar'
-  github_del_proyecto: 'https://'
 
 reproductores:
   touchtbit: ['https://dev.eypacha.com/touchbit/#', Touchbit, T]
