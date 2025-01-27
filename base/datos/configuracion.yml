@@ -4,11 +4,11 @@ titulo_pagina: 'Exploración sobre Bytebeat'
 
 metadatos:
   titulo: 'Exploración sobre Bytebeat'
-  dominio: 'caalma.github.com/'
-  descripcion: 'Catálogo personal sobre ByteBeat. Caalma.'
+  dominio: 'caalma.github.io/'
+  descripcion: 'Exploración sobre ByteBeat. Caalma.'
   claves: 'bytebeat, rpn'
   imagen_compartir: 'favicon.svg'
-  favicon: '/favicon.svg'
+  favicon: 'favicon.ico'
 
 urls:
   #site: '/'

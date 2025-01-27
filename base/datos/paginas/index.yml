@@ -1,6 +1,6 @@
 ---
 
-titulo: 'Exploración sobre ByteBeat - Menú'
+titulo: 'Exploración sobre ByteBeat'
 html_base: 'menu.html'
 ruta_static: 'index.html'
 
