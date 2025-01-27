@@ -1,0 +1,76 @@
+* {
+  font-family: 'FiraCode', monospace;
+  word-break: break-word;
+  box-sizing: border-box;
+}
+html {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background: #111;
+  color: #bbb;
+}
+body.bloqueado {
+  overflow: hidden;
+}
+.contenido {
+  padding-bottom: 100px;
+}
+.lista-bb {
+  color: #eee;
+}
+.lista-bb .codigos input[type=number] {
+  width: 100px;
+  border: none;
+}
+.lista-bb .codigos code {
+  color: #8f4;
+  background: #222;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px transparent;
+}
+.lista-bb .codigos code:focus {
+  border-color: #aaa;
+}
+.lista-bb .codigos code:hover {
+  background: #000;
+  transition: all 0.5s;
+}
+.copiado::before {
+  content: '¡ COPIADO !  ';
+  font-weight: 900;
+  color: #5a1;
+  transition: all 0.1;
+}
+.utiles {
+  position: fixed;
+  right: 0;
+  top: 100px;
+  width: 40px;
+  text-align: right;
+  padding: 10px;
+}
+.utiles * {
+  display: inline-block;
+}
+footer {
+  margin-top: auto;
+  padding: 20px;
+  background: #000;
+}
+footer p {
+  color: #666;
+}
+@media (max-width: 800px) {
+  .en-2-columnas div.item {
+    width: 100%;
+  }
+}

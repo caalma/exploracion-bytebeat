@@ -1,0 +1,75 @@
+---
+
+titulo: 'EsB: RPN de solamente "t" y operadores'
+html_base: 'listado.html'
+ruta_static: '/pag/rpn_t_y_operadores/index.html'
+
+contenido: |
+  # RPN de solamente "t" y operadores { .py-4 }
+
+lista_bb:
+  - code:
+      - t >>
+      - t <<
+      - t *
+      - t /
+      - t +
+      - t -
+    rate: 8000
+    query_greggman: t=0&s=8000&e=1&bb=5d000001000500000000000000003a0803d82083ffffffffc0000000
+    show: true
+    comment: |
+      Con un solo operador.
+
+
+  - code:
+      - t << t t >> | <<
+      - t >> t t >> + -
+      - t * t t ~ * /
+    rate: 8000
+    query_greggman: t=0&s=8000&e=1&bb=5d000001001100000000000000003a080398203c43787d4784ab4c0a2dfa7bfffee6f000
+    show: true
+
+  - code:
+      - t | t ^ t >>
+    rate: 8000
+    query_greggman: t=0&s=8000&e=1&bb=5d000001000c00000000000000003a080b821a0d250d5d5135486cfffff2f63800
+    show: true
+
+
+  - code:
+      - t * t t * / & t &
+      - t * t t * / & t %
+      - t * t t * / & t <<
+    rate: 8000
+    query_greggman: t=0&s=8000&e=1&bb=5d000001001200000000000000003a08014218897cf908762fbf393e326fffff9d110000
+    show: true
+
+  - code:
+      - t << t >> t >> t +  t >> t >> t >>
+      - t >> t +  t >> t +  t >> t +  t >> t >>
+      - t >> t >> t << t >> t << t >> t << t >>
+    rate: 8000
+    query_greggman: t=0&s=8000&e=1&bb=5d000001002200000000000000003a080398208041084decdf648960b4c0c3fffe631000
+    show: true
+
+  - code:
+      - t t t t t t t t << >> << >> << >> << >>
+    rate: 8000
+    query_greggman: t=0&s=8000&e=1&bb=5d000001002800000000000000003a0826023c1dc6954a9ab4c629e02ffffe936000
+    show: true
+    comment: |
+      Aislando operandos y operadores.
+
+  - code:
+      - t | t | t + t | t << t << t | t >>
+    rate: 8000
+    query_greggman: t=0&s=8000&e=1&bb=5d000001002300000000000000003a080b821b4a354fda319917b91e21003acdffe73ffffb632000
+    show: true
+
+  - code:
+      - t ~ t |
+      - t ~ t &
+    rate: 8000
+    query_greggman:
+    show: true

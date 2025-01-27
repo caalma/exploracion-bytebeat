@@ -1,0 +1,12 @@
+---
+
+titulo: 'Exploración sobre ByteBeat - Menú'
+html_base: 'menu.html'
+ruta_static: 'index.html'
+
+contenido: |
+  # Exploración sobre Bytebeat { .py-5 }
+
+  [SIN CLASIFICAR](/pag/rpn_sin_clasificar/){.btn .btn-outline-success }
+  [DESBALANCEADOS](/pag/rpn_desbalanceados/){.btn .btn-outline-success }
+  [T y OPERADORES](/pag/rpn_t_y_operadores/){.btn .btn-outline-success }

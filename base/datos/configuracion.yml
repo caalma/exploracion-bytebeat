@@ -1,0 +1,20 @@
+---
+
+titulo_pagina: 'Exploración sobre Bytebeat'
+
+metadatos:
+  titulo: 'Exploración sobre Bytebeat'
+  dominio: 'caalma.github.com/'
+  descripcion: 'Catálogo personal sobre ByteBeat. Caalma.'
+  claves: 'bytebeat, rpn'
+  imagen_compartir: 'favicon.svg'
+  favicon: '/favicon.svg'
+
+urls:
+  site: /
+  web_del_autor: 'https://caalma.net.ar'
+  github_del_proyecto: 'https://'
+
+reproductores:
+  touchtbit: ['https://dev.eypacha.com/touchbit/#', Touchbit, T]
+  html5bytebeat: ['https://greggman.com/downloads/examples/html5bytebeat/html5bytebeat.html#', HTML5Bytebeat, G]
