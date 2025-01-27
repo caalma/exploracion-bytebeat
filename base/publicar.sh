@@ -1,6 +1,8 @@
 #!/bin/bash
 # -*- coding:utf-8 -*-
 
+./actualizar.py
+
 R=$(pwd)
 cd ../
 

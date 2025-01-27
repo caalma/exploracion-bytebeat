@@ -11,7 +11,6 @@ metadatos:
   favicon: 'favicon.ico'
 
 urls:
-  #site: '/'
   site: 'https://caalma.github.io/exploracion-bytebeat/'
   github_del_proyecto: 'https://github.com/caalma/exploracion-bytebeat'
   web_del_autor: 'https://caalma.net.ar'

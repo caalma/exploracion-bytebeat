@@ -8,7 +8,7 @@ from actualizar import actualizar_todo
 def main():
 
     # actualizar documentos estáticos
-    actualizar_todo()
+    actualizar_todo('local')
 
     # variables básicas
     h, p, l = '127.0.0.1', 8099, 35729

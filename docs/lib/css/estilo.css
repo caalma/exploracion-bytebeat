@@ -70,6 +70,10 @@ body.bloqueado {
 .utiles nav:hover {
   background: #000000;
 }
+.utiles nav a,
+.utiles nav button {
+  border: 1px solid transparent;
+}
 .utiles * {
   display: inline-block;
 }
@@ -80,4 +84,18 @@ footer {
 }
 footer p {
   color: #666;
+}
+@keyframes titilar_anim {
+  0% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #ffff00;
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+.titilar {
+  animation: titilar_anim 1s infinite;
 }

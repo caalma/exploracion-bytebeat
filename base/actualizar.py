@@ -71,7 +71,12 @@ def actualizar_paginas():
                 f.write(html)
 
 
-def actualizar_todo():
+def actualizar_todo(modo='publico'):
+    global dat_cfg
+
+    if modo == 'local':
+        dat_cfg['urls']['site'] = '/'
+
     actualizar_paginas()
     # finalización
     print('--- Actualización completada!')

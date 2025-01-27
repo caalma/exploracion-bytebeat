@@ -125,10 +125,12 @@ function configureExternalsApp(){
             let elems = document.querySelectorAll('[name=externalApp]');
             if(query !== 'None'){
                 elems.forEach(elem => {
-                    elem.classList.add('btn-success');
+                    elem.setAttribute('href', elem.getAttribute('data-site') + query);
+                    elem.classList.add('btn-success', 'titilar');
                     elem.classList.remove('btn-secondary');
-                    let url = elem.getAttribute('data-site') + query;
-                    elem.setAttribute('href', url);
+                    setTimeout(() => {
+                        elem.classList.remove('titilar');
+                    }, 1000);
                 });
             }else{
                 elems.forEach(elem => {

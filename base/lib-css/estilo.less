@@ -82,6 +82,9 @@ body {
         &:hover {
             background: rgba(0, 0, 0, 1);
         }
+        a, button {
+            border: 1px solid transparent;
+        }
     }
 
     * {
@@ -96,6 +99,16 @@ footer {
     p {
         color: #666;
     }
+}
+
+@keyframes titilar_anim {
+    0% { border-color: transparent; }
+    50% { border-color: rgb(255 255 0); }
+    100% { border-color: transparent; }
+}
+
+.titilar {
+    animation: titilar_anim 1s infinite;
 }
 
 
