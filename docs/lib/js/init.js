@@ -221,6 +221,13 @@ function on_load (ev) {
                     configureExternalsApp();
                 });
             });
+            elem.addEventListener('keydown', ev => {
+                console.log(ev.key);
+                //setCodeActual(elem);
+                //playPauseActivate();
+                //configureExternalsApp();
+
+            });
         });
     }
 
