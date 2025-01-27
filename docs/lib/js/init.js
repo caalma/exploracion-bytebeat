@@ -1,16 +1,5 @@
-//import ByteBeatNode from 'https://greggman.github.io/html5bytebeat/dist/2.x/ByteBeat.module.js';
 import ByteBeatNode from './ByteBeat.module.js';
-//import compressor from './compressor.js';
-import {
-  convertBytesToHex,
-  convertHexToBytes,
-//  makeExposedPromise,
-//  splitBySections,
-//  s_beatTypes,
-//  s_expressionTypes,
-} from './utils.js';
-
-//const compressor = new LZMA( './lzma_worker.js' );
+import { convertBytesToHex, convertHexToBytes } from './utils.js';
 
 let doNotSetURL = false;
 let g_ignoreHashChange;
@@ -21,7 +10,6 @@ let g_bb_rate = 8000;
 let g_bb_code_l = '';
 let g_bb_code_r = '';
 let g_actual_code = '';
-
 
 function getURL(fn=()=>{}) {
     compressor.compress(g_actual_code, 1,
@@ -152,7 +140,7 @@ function configureExternalsApp(){
     }, 100);
 }
 
-function load_w (ev) {
+function on_load (ev) {
     window.bb = {
         'init': init,
         'reinit': reinit,
@@ -232,4 +220,4 @@ function load_w (ev) {
     }
 }
 
-window.addEventListener('load', load_w);
+window.addEventListener('load', on_load);
