@@ -13,7 +13,7 @@ Funciona como un server local que se ejecuta con el script `./base/server.py`.
 + Python 3
 + Varias librerías de Python, ver `base/requirements.txt`.
 + Lessc
-
++ Bash
 
 ## Créditos
 

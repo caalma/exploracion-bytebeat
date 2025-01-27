@@ -2,4 +2,4 @@
 
 titulo: 'Caalma - Exploraciones sobre ByteBeat - 404'
 html_base: 'error_404.html'
-ruta_static: '404.html'
+ruta_static: '/404.html'

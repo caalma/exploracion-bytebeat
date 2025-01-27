@@ -1,9 +1,9 @@
 
 ---
 titulo: 'Exploración sobre ByteBeat'
-html_base: 'menu.html'
-ruta_static: 'index.html'
-
+html_base: 'pagina.html'
+ruta_static: '/index.html'
+estilo_de_pagina: 'm-4 text-center'
 contenido: |
   # Exploración sobre Bytebeat { .py-5 }
 

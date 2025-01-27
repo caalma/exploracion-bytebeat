@@ -1,7 +1,7 @@
 #!/bin/bash
 # -*- coding:utf-8 -*-
 
-./actualizar.py
+./actualizar.py publico
 
 R=$(pwd)
 cd ../

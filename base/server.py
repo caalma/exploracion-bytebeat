@@ -6,7 +6,6 @@ from livereload import Server, shell
 from actualizar import actualizar_todo
 
 def main():
-
     # actualizar documentos estáticos
     actualizar_todo('local')
 
@@ -20,8 +19,8 @@ def main():
     server = Server()
 
     # documentos donde considerar cambios automáticos
-    server.watch('./datos/', shell('./actualizar.py'))
-    server.watch('./plantillas/', shell('./actualizar.py'))
+    server.watch('./datos/', shell('./actualizar.py local'))
+    server.watch('./plantillas/', shell('./actualizar.py local'))
     server.watch('./lib-css/', shell('lessc ./lib-css/estilo.less', output='../docs/lib/css/estilo.css'))
     server.watch('../docs/lib/', shell(''))
     server.watch('../docs/lib/css/', shell(''))
@@ -33,7 +32,6 @@ def main():
 
     # activación del server
     server.serve(root='../docs/', liveport=l, host=h, port=p)
-
 
 if __name__ == '__main__':
     main()

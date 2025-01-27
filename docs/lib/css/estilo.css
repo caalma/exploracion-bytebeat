@@ -30,6 +30,9 @@ body.bloqueado {
   width: 100px;
   border: none;
 }
+.lista-bb .codigos .code-actual code {
+  border-right: solid 2px #f44;
+}
 .lista-bb .codigos code {
   color: #8f4;
   background: #222;

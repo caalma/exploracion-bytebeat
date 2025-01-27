@@ -142,6 +142,25 @@ function configureExternalsApp(){
     }, 100);
 }
 
+function setCodeActual(elem){
+    let cAct = 'code-actual';
+    codes.forEach(e => {
+        e.parentElement.classList.remove(cAct);
+    });
+    elem.parentElement.classList.add(cAct);
+    g_bb_rate = parseInt(elem.parentElement.querySelector('[name=rate]').value);
+    try { bb.setRate(g_bb_rate); } catch (err) { }
+    g_actual_code = elem.textContent;
+    bb.setCode(g_actual_code);
+}
+
+function isCodeActual(elem){
+    let cAct = 'code-actual';
+    return elem.parentElement.classList.contains(cAct);
+}
+
+var codes;
+
 function on_load (ev) {
     window.bb = {
         'init': init,
@@ -156,8 +175,8 @@ function on_load (ev) {
 
     let btnPlayPause = document.querySelector('[name=play-pause]');
     let inputRate = document.querySelectorAll('[name=rate]');
-    let codes = document.querySelectorAll('code');
     let elemsCopiar = document.querySelectorAll('.copiar');
+    codes = document.querySelectorAll('code');
 
     let playPauseActivate = () => {
         btnPlayPause.classList.remove('btn-secondary');
@@ -197,10 +216,7 @@ function on_load (ev) {
         codes.forEach(elem => {
             ['click', 'change'].forEach(evType => {
                 elem.addEventListener(evType, ev => {
-                    g_bb_rate = parseInt(elem.parentElement.querySelector('[name=rate]').value);
-                    try { bb.setRate(g_bb_rate); } catch (err) { }
-                    g_actual_code = elem.textContent;
-                    bb.setCode(g_actual_code);
+                    setCodeActual(elem);
                     playPauseActivate();
                     configureExternalsApp();
                 });
@@ -213,8 +229,10 @@ function on_load (ev) {
             ['change', 'click', 'keyup'].forEach(evType => {
                 elem.addEventListener(evType, ev => {
                     if(g_context){
-                        bb.setRate(parseInt(elem.value));
-                        configureExternalsApp();
+                        if(isCodeActual(elem)){
+                            bb.setRate(parseInt(elem.value));
+                            configureExternalsApp();
+                        }
                     }
                 });
             });

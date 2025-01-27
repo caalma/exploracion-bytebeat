@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 
-
 from os import listdir, makedirs
 from os.path import splitext, dirname, exists
 from pathlib import Path
@@ -16,6 +15,7 @@ from markdown.extensions import Extension
 from random import shuffle
 from datetime import datetime
 import pytz
+import sys
 
 # ------ funciones generales
 def fecha_de_actualizacion():
@@ -45,7 +45,6 @@ def leer_yml(ar):
     with open(ar, 'r') as f:
         return yaml.safe_load(f)
 
-
 def actualizar_paginas():
     # completado de plantillas de PÁGINAS
     ruta_in = './datos/paginas/'
@@ -54,26 +53,20 @@ def actualizar_paginas():
 
     for ar in [a for a in listdir(ruta_in) if a.endswith('.yml')]:
         print('Página: ', ar)
-
         dat_cfg['actualizacion'] = fecha_de_actualizacion()
         dat_cfg['cache_actu'] = int(time_ns() / 1000)
         dat_pag = leer_yml(f'{ruta_in}{ar}')
 
         if dat_pag['ruta_static']:
-
             arc_out = ruta_public + dat_pag['ruta_static']
             makedirs(dirname(arc_out), exist_ok=True)
-
             tpl = env_jinja2.get_template(dat_pag['html_base'])
             html = tpl.render(cfg=dat_cfg, pag=dat_pag)
-
             with open(arc_out, 'w') as f:
                 f.write(html)
 
-
 def actualizar_todo(modo='publico'):
     global dat_cfg
-
     if modo == 'local':
         dat_cfg['urls']['site'] = '/'
 
@@ -81,18 +74,17 @@ def actualizar_todo(modo='publico'):
     # finalización
     print('--- Actualización completada!')
 
-
 # ------ configuracion general
 markdown_extensiones = [ 'tables', 'attr_list', 'toc', 'abbr', 'footnotes' ]
-markdown_extensiones_config = { 'tables': {}, 'attr_list': {}, 'toc': {}, 'abbr': {}, 'footnotes': {}}
+markdown_extensiones_config = { 'tables': {}, 'attr_list': {}, 'toc': {}, 'abbr': {}, 'footnotes': {} }
 
 ruta_public = '../docs/'
-
 ar_cfg_in = './datos/configuracion.yml'
+
+dat_cfg = {}
 
 with open(ar_cfg_in, 'r') as f:
     dat_cfg = yaml.safe_load(f)
-
 
 # ------  completado de plantillas
 fl = FileSystemLoader('plantillas')
@@ -101,6 +93,5 @@ env_jinja2 = Environment(loader=fl)
 env_jinja2.globals.update(markdown = md_a_html)
 env_jinja2.globals.update(url_dominio = url_dominio)
 
-
 if __name__ == '__main__':
-    actualizar_todo()
+    actualizar_todo(sys.argv[1])

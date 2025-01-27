@@ -1,0 +1,19 @@
+---
+titulo: 'EsB: Ayuda'
+html_base: 'pagina.html'
+ruta_static: '/pag/ayuda/index.html'
+estilo_de_pagina: 'm-4 text-left'
+
+contenido: |
+  # Ayuda y modo de uso {.text-center}
+
+  <br>
+  Los campos códigos disponen de ciertas utilidades interactivas.
+
+  1. Clikeando sobre cualquiera de ellos el código de la misma se copia al portapapeles. Además se activa como `código actual`.
+  2. Cuando el campo está en foco y con el cursor en modo de edición es posible cambiar el contenido. Al darle click nuevamente se vuelve a realizar el item 1.
+  3. Cuando existe un `código actual` activo quedan disponibles algunas utilidades en el márgen derecho de la página.
+  4. La utilidad "P" reproduce o pausa el audio generado mediante el `código actual`.
+  5. La utilidad "T" abre la aplicación externa **Touchbit** con el `código actual`, para escucharlo o editarlo allí.
+  6. La utilidad "H" abre la aplicación externa **HTML5Bytebeat** con el `código actual`, para escucharlo o editarlo allí.
+  7. El campo numérico junto a cada campo de código especifíca el _sample rate_ con que se escuchará dicho audio. Al modificarlo automáticamente se actualizan los enlaces de "T" y "H", además si el audio está sonando será afectado con el nuevo sample rate.
