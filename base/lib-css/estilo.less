@@ -39,6 +39,9 @@ body {
         .code-actual {
             code {
                 border-right: solid 2px #f44;
+                &:hover {
+                    background: #030303;
+                }
             }
         }
         code {
@@ -46,26 +49,18 @@ body {
             background: #222;
             border-radius: 8px;
             cursor: pointer;
-            border: 1px transparent;
+            transition: all 0.3s;
 
             &:focus {
-                border-color: #aaa;
+                outline: 1px solid rgba(100, 0, 255, 0.7)!important;
+                background: #030303;
             }
             &:hover {
-                background: #000;
-                transition: all 0.5s;
+                background: #1a1a1a;
             }
         }
     }
 }
-
-.copiado::before {
-    content: '¡ COPIADO !  ';
-    font-weight: 900;
-    color: #5a1;
-    transition: all 0.1;
-}
-
 
 .utiles {
     position: fixed;
@@ -116,5 +111,18 @@ footer {
     animation: titilar_anim 1s infinite;
 }
 
+#notificacion {
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: right;
+    padding: 10px;
+    color: rgb(0 255 255);
+    background: rgba(0,0,0,0.7);
+    opacity: 0;
+    transition: all 0.2s;
+
+    &.activa { opacity: 1; }
+}
 
 @import url("responsive.less");

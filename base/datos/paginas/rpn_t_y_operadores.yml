@@ -1,8 +1,8 @@
 ---
-
 titulo: 'EsB: RPN de solamente "t" y operadores'
 html_base: 'listado.html'
 ruta_static: '/pag/rpn_t_y_operadores/index.html'
+estilo_de_contenido: 'm-4 text-center'
 
 contenido: |
   # RPN de solamente "t" y operadores { .py-4 }

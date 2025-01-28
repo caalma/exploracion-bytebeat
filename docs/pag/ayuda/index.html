@@ -35,7 +35,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
 
-        <link href="https://caalma.github.io/exploracion-bytebeat/lib/css/estilo.css?1738002510293331" rel="stylesheet">
+        <link href="https://caalma.github.io/exploracion-bytebeat/lib/css/estilo.css?1738025886404564" rel="stylesheet">
 
         <!-- iconos -->
         <link rel="shortcut icon" href="https://caalma.github.io/exploracion-bytebeat/favicon.ico" type="image/x-icon">
@@ -61,12 +61,17 @@
 Los campos códigos disponen de ciertas utilidades interactivas.</p>
 <ol>
 <li>Clikeando sobre cualquiera de ellos el código de la misma se copia al portapapeles. Además se activa como <code>código-actual</code>.</li>
-<li>Cuando el campo está en foco y con el cursor en modo de edición es posible cambiar el contenido. Al darle click nuevamente, o presionar <code>Alt+Enter</code> estando dentro del campo se vuelven a realizar las acciones del item 1.</li>
+<li>Cuando el campo está en foco y con el cursor en modo de edición es posible cambiar el contenido. Al darle click nuevamente se vuelven a realizar las acciones del item 1.</li>
 <li>Cuando existe un <code>código-actual</code> activo quedan disponibles algunas utilidades en el márgen derecho de la página.</li>
 <li>La utilidad <strong>P</strong> reproduce o pausa el audio generado mediante el <code>código-actual</code>.</li>
 <li>La utilidad <strong>T</strong> abre la aplicación externa <strong>Touchbit</strong> con el <code>código-actual</code>, para escucharlo o editarlo allí.</li>
 <li>La utilidad <strong>H</strong> abre la aplicación externa <strong>HTML5Bytebeat</strong> con el <code>código-actual</code>, para escucharlo o editarlo allí.</li>
 <li>El campo numérico junto a cada campo de código especifíca el <em>sample rate</em> con que se escuchará dicho audio. Al modificarlo, automáticamente se actualizan los enlaces de <strong>T</strong> y <strong>H</strong>, y además, si el audio se está reproduciendo, será afectado con el nuevo <em>sample rate</em>.</li>
+<li>Estando dentro de cualquier campo de código existe tres atajos de teclado:</li>
+<li><code>Alt+p</code> hace lo mismo que la utilidad <strong>P</strong>,</li>
+<li><code>Alt+t</code> hace lo mismo que la utilidad <strong>T</strong>,</li>
+<li><code>Alt+h</code> hace lo mismo que la utilidad <strong>H</strong>,</li>
+<li>'Alt+Enter' hace lo mismo que darle click al campo de código.</li>
 </ol></div>
 </div>
 
@@ -76,14 +81,15 @@ Los campos códigos disponen de ciertas utilidades interactivas.</p>
             <p class="text-center">
                 <a class="btn btn-sm text-success"  href="https://caalma.net.ar">Por CAALMA</a>
                 ·
-                <span class="small px-2">Actualizado el <b>2025-01-27 15:28:30</b></span>
+                <span class="small px-2">Actualizado el <b>2025-01-27 21:58:06</b></span>
                 ·
                 <a class="btn btn-sm text-success"  href="https://github.com/caalma/exploracion-bytebeat">Disponible en GITHUB </a>
             </p>
         </footer>
-        <script>
-         const compressor = new LZMA( 'https://caalma.github.io/exploracion-bytebeat/lib/js/lzma_worker.js' );
-        </script>
+
+        <div id="notificacion"></div>
+
+        <script>const compressor = new LZMA( 'https://caalma.github.io/exploracion-bytebeat/lib/js/lzma_worker.js' );</script>
         <script src="https://caalma.github.io/exploracion-bytebeat/lib/js/init.js" type="module"></script>
     </body>
 </html>

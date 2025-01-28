@@ -66,9 +66,10 @@
                 <a class="btn btn-sm text-success"  href="{{ cfg.urls.github_del_proyecto }}">Disponible en GITHUB </a>
             </p>
         </footer>
-        <script>
-         const compressor = new LZMA( '{{ cfg.urls.site }}lib/js/lzma_worker.js' );
-        </script>
+
+        <div id="notificacion"></div>
+
+        <script>const compressor = new LZMA( '{{ cfg.urls.site }}lib/js/lzma_worker.js' );</script>
         <script src="{{ cfg.urls.site }}lib/js/init.js" type="module"></script>
     </body>
 </html>

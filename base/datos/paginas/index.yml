@@ -1,12 +1,19 @@
-
 ---
 titulo: 'Exploración sobre ByteBeat'
 html_base: 'pagina.html'
 ruta_static: '/index.html'
-estilo_de_pagina: 'm-4 text-center'
+estilo_de_contenido: 'm-4 text-center'
+
 contenido: |
   # Exploración sobre Bytebeat { .py-5 }
 
-  [SIN CLASIFICAR](./pag/rpn_sin_clasificar/){.btn .btn-outline-success .my-2 }
+  [RITMICA](./pag/rpn_ritmica/){.btn .btn-outline-success .my-2 }
+  [COMPOSICIÓN de FRECUENCIAS](./pag/rpn_composicion_de_frecuencias/){.btn .btn-outline-success .my-2 }
+  [MELODÍAS](./pag/rpn_melodias/){.btn .btn-outline-success .my-2 }
+  [BALBUCEOS](./pag/rpn_balbuceos/){.btn .btn-outline-success .my-2 }
+
   [DESBALANCEADOS](./pag/rpn_desbalanceados/){.btn .btn-outline-success .my-2 }
   [T y OPERADORES](./pag/rpn_t_y_operadores/){.btn .btn-outline-success .my-2 }
+  [ESTILOS de ESCRITURA](./pag/rpn_estilos_de_escritura/){.btn .btn-outline-success .my-2 }
+
+  [SIN CLASIFICAR](./pag/rpn_sin_clasificar/){.btn .btn-outline-success .my-2 }

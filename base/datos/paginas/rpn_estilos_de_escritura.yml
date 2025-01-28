@@ -1,0 +1,15 @@
+---
+titulo: 'EsB: RPN Estilos de escritura'
+html_base: 'listado.html'
+ruta_static: '/pag/rpn_estilos_de_escritura/index.html'
+estilo_de_contenido: 'm-4 text-center'
+
+contenido: |
+  # RPN Estilos de escritura { .py-4 }
+
+lista_bb:
+  - code:
+      - [3 t 5 t t 7 t 4 << >> >> << >> >> swap >>, 8000]
+      - [t 4 << 7 swap >> t swap >> t swap << 5 swap >> t swap >> 3 >>, 8000]
+    comment: |
+      Ambas expresiones son equivalentes: **1** escrita aislando operandos y operadores; **2** intercalándolos.

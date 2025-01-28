@@ -122,7 +122,7 @@ function configureExternalsApp(){
     setTimeout(()=>{
         bb.reinit();
         getURL(query => {
-            let elems = document.querySelectorAll('[name=externalApp]');
+            let elems = document.querySelectorAll('.external-app');
             if(query !== 'None'){
                 elems.forEach(elem => {
                     elem.setAttribute('href', elem.getAttribute('data-site') + query);
@@ -159,6 +159,15 @@ function isCodeActual(elem){
     return elem.parentElement.classList.contains(cAct);
 }
 
+function notificar(texto){
+    let cAct = 'activa';
+    notificacion.innerText = texto;
+    notificacion.classList.add(cAct);
+    setTimeout(()=>{
+        notificacion.classList.remove(cAct);
+    }, 700);
+}
+
 var codes;
 
 function on_load (ev) {
@@ -176,6 +185,7 @@ function on_load (ev) {
     let btnPlayPause = document.querySelector('[name=play-pause]');
     let inputRate = document.querySelectorAll('[name=rate]');
     let elemsCopiar = document.querySelectorAll('.copiar');
+    let notificacion = document.querySelector('#notificacion');
     codes = document.querySelectorAll('code');
 
     let playPauseActivate = () => {
@@ -187,10 +197,7 @@ function on_load (ev) {
         elemsCopiar.forEach(elem => {
             elem.addEventListener('click', ev => {
                 copiarAlPortapapeles(elem.innerText);
-                elem.classList.add('copiado');
-                setTimeout(()=>{
-                    elem.classList.remove('copiado');
-                }, 700);
+                notificar('Código copiado !');
             });
         });
     }
@@ -229,6 +236,20 @@ function on_load (ev) {
                 }
             });
         });
+
+        window.addEventListener('keydown', ev => {
+            if(ev.altKey){
+                if(ev.key == 'p'){
+                    btnPlayPause.click();
+                }else if(ev.key == 't'){
+                    document.querySelector('[name=open-tb]').click();
+                }else if(ev.key == 'h'){
+                    document.querySelector('[name=open-h5bb]').click();
+                }
+            }
+
+        });
+
     }
 
     if(inputRate.length > 0){

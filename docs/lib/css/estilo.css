@@ -33,25 +33,22 @@ body.bloqueado {
 .lista-bb .codigos .code-actual code {
   border-right: solid 2px #f44;
 }
+.lista-bb .codigos .code-actual code:hover {
+  background: #030303;
+}
 .lista-bb .codigos code {
   color: #8f4;
   background: #222;
   border-radius: 8px;
   cursor: pointer;
-  border: 1px transparent;
+  transition: all 0.3s;
 }
 .lista-bb .codigos code:focus {
-  border-color: #aaa;
+  outline: 1px solid rgba(100, 0, 255, 0.7) !important;
+  background: #030303;
 }
 .lista-bb .codigos code:hover {
-  background: #000;
-  transition: all 0.5s;
-}
-.copiado::before {
-  content: '¡ COPIADO !  ';
-  font-weight: 900;
-  color: #5a1;
-  transition: all 0.1;
+  background: #1a1a1a;
 }
 .utiles {
   position: fixed;
@@ -101,4 +98,18 @@ footer p {
 }
 .titilar {
   animation: titilar_anim 1s infinite;
+}
+#notificacion {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+  padding: 10px;
+  color: #00ffff;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: all 0.2s;
+}
+#notificacion.activa {
+  opacity: 1;
 }

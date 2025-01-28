@@ -9,7 +9,7 @@
         <meta content="width" name="MobileOptimized">
         <meta content="on" http-equiv="cleartype">
 
-        <title>EsB: RPN de solamente "t" y operadores</title>
+        <title>EsB: RPN Composición de frecuencias</title>
 
         <meta content="Exploración sobre ByteBeat. Caalma." name="description">
 	    <meta content="index, follow" name="robots">
@@ -35,7 +35,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
 
-        <link href="https://caalma.github.io/exploracion-bytebeat/lib/css/estilo.css?1738025886496923" rel="stylesheet">
+        <link href="https://caalma.github.io/exploracion-bytebeat/lib/css/estilo.css?1738025886427319" rel="stylesheet">
 
         <!-- iconos -->
         <link rel="shortcut icon" href="https://caalma.github.io/exploracion-bytebeat/favicon.ico" type="image/x-icon">
@@ -57,7 +57,7 @@
             
 <div class="container">
     <div class="my-1 text-center">
-        <div class="m-4 text-center"><h1 class="py-4" id="rpn-de-solamente-t-y-operadores">RPN de solamente "t" y operadores</h1></div>
+        <div class="m-4 text-center"><h1 class="py-4" id="rpn-composicion-de-frecuencias">RPN Composición de frecuencias</h1></div>
     </div>
 
     <div>
@@ -65,7 +65,7 @@
             
             <li class="list-group my-3 py-2">
                 
-                <div class="small mt-4 px-2 rounded-1"><p>Con un solo operador.</p></div>
+                <div class="small mt-4 px-2 rounded-1"><p>Ajuste de frecuencia.</p></div>
                 
 
                 <div class="d-grid gap-2 codigos">
@@ -74,7 +74,7 @@
                         <small class="p-2 text-secondary">1. </small>
                         <code class="d-block p-2 text-light col copiar "
                               contenteditable="true"
-                              title="Click para COPIAR y ACTIVAR">t >></code>
+                              title="Click para COPIAR y ACTIVAR">t 1 <<</code>
                         <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
                                type="number" min="0" name="rate" value="8000" title="Sample Rate">
                     </div>
@@ -83,7 +83,7 @@
                         <small class="p-2 text-secondary">2. </small>
                         <code class="d-block p-2 text-light col copiar "
                               contenteditable="true"
-                              title="Click para COPIAR y ACTIVAR">t <<</code>
+                              title="Click para COPIAR y ACTIVAR">t 3 <<</code>
                         <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
                                type="number" min="0" name="rate" value="8000" title="Sample Rate">
                     </div>
@@ -92,7 +92,44 @@
                         <small class="p-2 text-secondary">3. </small>
                         <code class="d-block p-2 text-light col copiar "
                               contenteditable="true"
-                              title="Click para COPIAR y ACTIVAR">t *</code>
+                              title="Click para COPIAR y ACTIVAR">t 5 <<</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+                <div class="small mt-4 px-2 rounded-1"><p>Ajuste de intensidad.</p></div>
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">1 t <<</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">2. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">10 t <<</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">3. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">100 t <<</code>
                         <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
                                type="number" min="0" name="rate" value="8000" title="Sample Rate">
                     </div>
@@ -101,25 +138,7 @@
                         <small class="p-2 text-secondary">4. </small>
                         <code class="d-block p-2 text-light col copiar "
                               contenteditable="true"
-                              title="Click para COPIAR y ACTIVAR">t /</code>
-                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
-                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
-                    </div>
-                    
-                    <div class="d-flex">
-                        <small class="p-2 text-secondary">5. </small>
-                        <code class="d-block p-2 text-light col copiar "
-                              contenteditable="true"
-                              title="Click para COPIAR y ACTIVAR">t +</code>
-                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
-                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
-                    </div>
-                    
-                    <div class="d-flex">
-                        <small class="p-2 text-secondary">6. </small>
-                        <code class="d-block p-2 text-light col copiar "
-                              contenteditable="true"
-                              title="Click para COPIAR y ACTIVAR">t -</code>
+                              title="Click para COPIAR y ACTIVAR">1000 t <<</code>
                         <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
                                type="number" min="0" name="rate" value="8000" title="Sample Rate">
                     </div>
@@ -136,7 +155,7 @@
                         <small class="p-2 text-secondary">1. </small>
                         <code class="d-block p-2 text-light col copiar "
                               contenteditable="true"
-                              title="Click para COPIAR y ACTIVAR">t << t t >> | <<</code>
+                              title="Click para COPIAR y ACTIVAR">t t 22 * ^</code>
                         <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
                                type="number" min="0" name="rate" value="8000" title="Sample Rate">
                     </div>
@@ -145,7 +164,112 @@
                         <small class="p-2 text-secondary">2. </small>
                         <code class="d-block p-2 text-light col copiar "
                               contenteditable="true"
-                              title="Click para COPIAR y ACTIVAR">t >> t t >> + -</code>
+                              title="Click para COPIAR y ACTIVAR">t t 5 % *</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t t 4 * 11 t t t * | |</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">2. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t t 4 * 11 t t t / | |</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 2 >> t 3 >> | t 5 >> t 7 >> | t 11 >> t 13 >> | + + t t ~ * * 32 %</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 277 ^ t 128 ^ %</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+                <div class="small mt-4 px-2 rounded-1"><p>Ruido grueso.</p></div>
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 2 >> t 3 >> t 5 >> ^ &</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t t 5 >> t 7 >> t 4 >> << &</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">2. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t t t 5 >> t 3 >> t 2 >> << >> >></code>
                         <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
                                type="number" min="0" name="rate" value="8000" title="Sample Rate">
                     </div>
@@ -154,7 +278,7 @@
                         <small class="p-2 text-secondary">3. </small>
                         <code class="d-block p-2 text-light col copiar "
                               contenteditable="true"
-                              title="Click para COPIAR y ACTIVAR">t * t t ~ * /</code>
+                              title="Click para COPIAR y ACTIVAR">t t t 7 >> t 5 >> t 3 >> << << |</code>
                         <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
                                type="number" min="0" name="rate" value="8000" title="Sample Rate">
                     </div>
@@ -171,7 +295,7 @@
                         <small class="p-2 text-secondary">1. </small>
                         <code class="d-block p-2 text-light col copiar "
                               contenteditable="true"
-                              title="Click para COPIAR y ACTIVAR">t | t ^ t >></code>
+                              title="Click para COPIAR y ACTIVAR">t 0.8 | t -3.6 - / t 4.2 % + t 1.55 | / t 62 + % t 13 << * t 4 << ~ t 50 * - t 40 % t 613 / - | ^</code>
                         <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
                                type="number" min="0" name="rate" value="8000" title="Sample Rate">
                     </div>
@@ -188,7 +312,43 @@
                         <small class="p-2 text-secondary">1. </small>
                         <code class="d-block p-2 text-light col copiar "
                               contenteditable="true"
-                              title="Click para COPIAR y ACTIVAR">t * t t * / & t &</code>
+                              title="Click para COPIAR y ACTIVAR">t 129 * t 137 / | t t t | / 97 | /</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 2 * t 4 * |</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+                <div class="small mt-4 px-2 rounded-1"><p><strong>1</strong> y <strong>2</strong> se suavizan, <strong>3</strong> y <strong>4</strong> se refuerzan. ¿?</p></div>
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 5 % t 13 % |</code>
                         <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
                                type="number" min="0" name="rate" value="8000" title="Sample Rate">
                     </div>
@@ -197,7 +357,7 @@
                         <small class="p-2 text-secondary">2. </small>
                         <code class="d-block p-2 text-light col copiar "
                               contenteditable="true"
-                              title="Click para COPIAR y ACTIVAR">t * t t * / & t %</code>
+                              title="Click para COPIAR y ACTIVAR">t 7 % t 11 % t 19 % | |</code>
                         <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
                                type="number" min="0" name="rate" value="8000" title="Sample Rate">
                     </div>
@@ -206,7 +366,16 @@
                         <small class="p-2 text-secondary">3. </small>
                         <code class="d-block p-2 text-light col copiar "
                               contenteditable="true"
-                              title="Click para COPIAR y ACTIVAR">t * t t * / & t <<</code>
+                              title="Click para COPIAR y ACTIVAR">t 5 % t 13 % ^</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">4. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 7 % t 11 % t 19 % ^ ^</code>
                         <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
                                type="number" min="0" name="rate" value="8000" title="Sample Rate">
                     </div>
@@ -223,7 +392,7 @@
                         <small class="p-2 text-secondary">1. </small>
                         <code class="d-block p-2 text-light col copiar "
                               contenteditable="true"
-                              title="Click para COPIAR y ACTIVAR">t << t >> t >> t +  t >> t >> t >></code>
+                              title="Click para COPIAR y ACTIVAR">t 12 / t 5 * +</code>
                         <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
                                type="number" min="0" name="rate" value="8000" title="Sample Rate">
                     </div>
@@ -232,35 +401,7 @@
                         <small class="p-2 text-secondary">2. </small>
                         <code class="d-block p-2 text-light col copiar "
                               contenteditable="true"
-                              title="Click para COPIAR y ACTIVAR">t >> t +  t >> t +  t >> t +  t >> t >></code>
-                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
-                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
-                    </div>
-                    
-                    <div class="d-flex">
-                        <small class="p-2 text-secondary">3. </small>
-                        <code class="d-block p-2 text-light col copiar "
-                              contenteditable="true"
-                              title="Click para COPIAR y ACTIVAR">t >> t >> t << t >> t << t >> t << t >></code>
-                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
-                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
-                    </div>
-                    
-                </div>
-            </li>
-            
-            <li class="list-group my-3 py-2">
-                
-                <div class="small mt-4 px-2 rounded-1"><p>Aislando operandos y operadores.</p></div>
-                
-
-                <div class="d-grid gap-2 codigos">
-                    
-                    <div class="d-flex">
-                        <small class="p-2 text-secondary">1. </small>
-                        <code class="d-block p-2 text-light col copiar "
-                              contenteditable="true"
-                              title="Click para COPIAR y ACTIVAR">t t t t t t t t << >> << >> << >> << >></code>
+                              title="Click para COPIAR y ACTIVAR">t 12 % t 5 % ^</code>
                         <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
                                type="number" min="0" name="rate" value="8000" title="Sample Rate">
                     </div>
@@ -277,7 +418,7 @@
                         <small class="p-2 text-secondary">1. </small>
                         <code class="d-block p-2 text-light col copiar "
                               contenteditable="true"
-                              title="Click para COPIAR y ACTIVAR">t | t | t + t | t << t << t | t >></code>
+                              title="Click para COPIAR y ACTIVAR">t t 2 / *</code>
                         <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
                                type="number" min="0" name="rate" value="8000" title="Sample Rate">
                     </div>
@@ -294,16 +435,41 @@
                         <small class="p-2 text-secondary">1. </small>
                         <code class="d-block p-2 text-light col copiar "
                               contenteditable="true"
-                              title="Click para COPIAR y ACTIVAR">t ~ t |</code>
+                              title="Click para COPIAR y ACTIVAR">2 t 3 t 5 t >> >> << << +</code>
                         <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
                                type="number" min="0" name="rate" value="8000" title="Sample Rate">
                     </div>
                     
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
                     <div class="d-flex">
-                        <small class="p-2 text-secondary">2. </small>
+                        <small class="p-2 text-secondary">1. </small>
                         <code class="d-block p-2 text-light col copiar "
                               contenteditable="true"
-                              title="Click para COPIAR y ACTIVAR">t ~ t &</code>
+                              title="Click para COPIAR y ACTIVAR">11 t * 13 t * |</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 9 % t 5 * *</code>
                         <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
                                type="number" min="0" name="rate" value="8000" title="Sample Rate">
                     </div>

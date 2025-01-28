@@ -1,0 +1,17 @@
+---
+titulo: 'EsB: RPN Balbuceos'
+html_base: 'listado.html'
+ruta_static: '/pag/rpn_balbuceos/index.html'
+estilo_de_contenido: 'm-4 text-center'
+
+contenido: |
+  # RPN Balbuceos
+
+lista_bb:
+  - code:
+      - [t 191 ^ t 55 ^ t 15951 ^ % %, 8000]
+
+  - code:
+      - [t 85 / t 195 << | t 31 / +, 8000]
+      - [t 85 / t 195 << | t 31 % +, 2000]
+      - [t 85 / t 195 >> | t 31 % +, 6000]

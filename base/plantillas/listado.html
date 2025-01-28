@@ -3,7 +3,7 @@
 {% block body %}
 <div class="container">
     <div class="my-1 text-center">
-        <div class="fs-4 text-center p-3">{{ markdown(pag.contenido) }}</div>
+        <div class="{{ pag.estilo_de_contenido }}">{{ markdown(pag.contenido) }}</div>
     </div>
 
     <div>
@@ -33,16 +33,16 @@
             <div class="utiles">
                 <nav class="d-grid gap-1">
                     <button class="btn btn-sm btn-secondary" name="play-pause" title="Audio: Play Pause">P</button>
-                    <a class="btn btn-sm btn-secondary"
+                    <a class="btn btn-sm btn-secondary external-app"
                        href="#"
-                       name="externalApp"
+                       name="open-tb"
                        data-site="{{ cfg.reproductores.touchtbit[0] }}"
                        target="_tbit" title="Abrir en {{ cfg.reproductores.touchtbit[1] }}">
 
                         {{ cfg.reproductores.touchtbit[2] }}</a>
-                    <a class="btn btn-sm btn-secondary"
+                    <a class="btn btn-sm btn-secondary external-app"
                        href="#"
-                       name="externalApp"
+                       name="open-h5bb"
                        data-site="{{ cfg.reproductores.html5bytebeat[0] }}"
                        target="_h5bb" title="Abrir en {{ cfg.reproductores.html5bytebeat[1] }}">
                         {{ cfg.reproductores.html5bytebeat[2] }}</a>

@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <meta content="ie=edge" http-equiv="x-ua-compatible">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta content="true" name="HandheldFriendly">
+        <meta content="width" name="MobileOptimized">
+        <meta content="on" http-equiv="cleartype">
+
+        <title>EsB: RPN rítmica</title>
+
+        <meta content="Exploración sobre ByteBeat. Caalma." name="description">
+	    <meta content="index, follow" name="robots">
+	    <link rel="canonical" href="https://caalma.github.io/exploracion-bytebeat/">
+	    <link rel="image_src" href="https://caalma.github.io/exploracion-bytebeat/favicon.svg">
+
+	    <meta property="og:image" content="https://caalma.github.io/exploracion-bytebeat/favicon.svg">
+		<meta property="og:image:secure_url" content="https://caalma.github.io/exploracion-bytebeat/favicon.svg">
+	    <meta property="og:image:type" content="image/svg">
+		<meta property="og:image:width" content="256" />
+		<meta property="og:image:height" content="256" />
+	    <meta property="og:title" content="Exploración sobre Bytebeat">
+	    <meta property="og:site_name" content="caalma.github.io/">
+	    <meta property="og:description" content="Exploración sobre ByteBeat. Caalma.">
+	    <meta property="og:locale" content="es_AR">
+
+        <!-- bootstrap  -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+        <!-- estilo personalizado -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+
+        <link href="https://caalma.github.io/exploracion-bytebeat/lib/css/estilo.css?1738025886212520" rel="stylesheet">
+
+        <!-- iconos -->
+        <link rel="shortcut icon" href="https://caalma.github.io/exploracion-bytebeat/favicon.ico" type="image/x-icon">
+
+        <!-- script -->
+        <script src="https://caalma.github.io/exploracion-bytebeat/lib/js/lzma.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <div class="my-3">
+                    <a class="btn btn-sm btn-outline-secondary"  href="https://caalma.github.io/exploracion-bytebeat/" title="Ir a la portada">/</a>
+                    <a class="btn btn-sm btn-outline-secondary"  href="https://caalma.github.io/exploracion-bytebeat/pag/ayuda/" title="Ir a la ayuda">?</a>
+                    <span>Exploración sobre Bytebeat</span>
+                </div>
+            </div>
+        </header>
+        <div class="contenido">
+            
+<div class="container">
+    <div class="my-1 text-center">
+        <div class="m-4 text-center"><h1 class="py-4" id="rpn-ritmica">RPN Rítmica</h1></div>
+    </div>
+
+    <div>
+        <ul class="lista-bb p-0">
+            
+            <li class="list-group my-3 py-2">
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 2 >> t 5 >> t 3 >> + - 0 <<</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">2. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 2 >> t 5 >> t 3 >> + - 1 <<</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 3 >> t 2 << t 8 >> << <<</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">2. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 1 << t 2 >> t 8 >> >> <<</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 1 << t 3 >> t 9 >> >> * 2 << t 2 >> t 4 >> t 5 >> + - +</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">2. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 1 >> t 3 << t 9 >> << * 1 << t 3 >> t 2 >> t 5 >> >> - +</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+                <div class="small mt-4 px-2 rounded-1"><p>Pulso que se acelera.</p></div>
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t * t t * / & 27 *</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">2. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t * t t * / & 3 <<</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+                <div class="small mt-4 px-2 rounded-1"><p>Regular e irregular.</p></div>
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t t t 5 >> t 3 >> t 9 >> >> >> <<</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+                <div class="small mt-4 px-2 rounded-1"><p>Ruidoso y agotándose.</p></div>
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 2 >> t 3 >> << t 5 >> t 7 >> << t 11 >> t 13 >> << + + t t ~ * * 32 %</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 6 % t 14 % t % 12 t 14 % + + + + t 9 >> t 6 >> t 3 * | ^ &</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">2. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 16 % t 15 % t 14 % t 12 % + + + t 9 >> t 6 >> t 3 * | ^ &</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 1 << t 3 >> t 5 >> ^ &</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+                <div class="small mt-4 px-2 rounded-1"><p><strong>1</strong> es autoria de <a href="https://github.com/eypacha">Ey Pacha</a>, <strong>2</strong> es un variante personal.</p></div>
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t t 11 >> 25 ^ >> t << 32640 ^ t 6 >> <<</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="11000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">2. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t t 12 >> 14 & >> t * 128 & t 5 >> >></code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="11000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+                <div class="small mt-4 px-2 rounded-1"><p><strong>1</strong> parece ruido de vinilo.</p></div>
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 0.5 * t -0.3 * + t 0.4 * & t -0.14 * +</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">2. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 0.5 * t -0.3 * + t 0.4 * + t -0.25 * +</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">3. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 0.5 * t -0.3 * + t 0.4 * + t -0.25 * ~</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">4. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 0.5 * t -0.3 * + t 0.4 * + t -0.25 * + t 7 >> <<</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 0.8 * t -3.6 * + t 4.2 * + t 1.55 * + t 21 >> << t 8 >> << t 5 >> >> t 210 >> >> t 6 % +</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">2. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 0.8 * t -3.6 * + t 4.2 * + t 1.55 * + t 21 >> << t 8 >> << t 5 >> >> t 210 >> >> t 8 >> + t 777 / >></code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">3. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 0.8 * t -3.6 * + t 4.2 * + t 1.55 * + t 21 >> << t 8 >> << t 5 >> >> t 210 >> >> t 8 >> + t 765 / +</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">4. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 0.8 * t -3.6 * + t 4.2 * + t 1.55 * + t 21 >> << t 8 >> << t 5 >> >> t 545 >> >> t 10 * << t 765 / +</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">5. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 0.8 * t -3.6 * + t 4.2 * + t 1.55 * - t 62 >> << t 13 >> << t 4 << >> t 545 >> >> t 10 * << t 765 / >></code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">6. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 0.8 * t -3.6 * + t 4.2 * + t 1.55 * - t 62 >> << t 13 >> << t 4 << >> t 545 >> >> t 10 * | % t * <<</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+                <div class="small mt-4 px-2 rounded-1"><p>Radar o el chavo llorando.</p></div>
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 1629 % t 97 / | t 93 / | <<</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="32000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+                <div class="small mt-4 px-2 rounded-1"><p>Loop rítmico de cuerdas, o similar.</p></div>
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 51 / t 170 % | t 3 * |</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+                <div class="small mt-4 px-2 rounded-1"><p>Ritmo oscilante.</p></div>
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 192 / t 22 % ^ | t 6 % | t 47 / >></code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+                <div class="small mt-4 px-2 rounded-1"><p>Repetitivo acompañado de nota aguda.</p></div>
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 192 / t 22 % ^ | t 6 % |</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+                <div class="small mt-4 px-2 rounded-1"><p>Sonidos alternos con velocidad rítmica creciente.</p></div>
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t t * 11 % t &</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+                <div class="small mt-4 px-2 rounded-1"><p>Cambio de acento.</p></div>
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 2 / t 3 / t 5 / | |</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">2. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 5 / t 2 / t 5 / | |</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+                <div class="small mt-4 px-2 rounded-1"><p>Regular, como un metrónomo.</p></div>
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 2 % t 11 / -</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">2. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 2 % t 22 / -</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">3. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 2 % t 33 / -</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+            <li class="list-group my-3 py-2">
+                
+                <div class="small mt-4 px-2 rounded-1"><p>Ciclos breves y regulares.</p>
+<p><strong>4</strong> a ritmo de sirenea, <strong>5</strong> a ritmo de helicóptero</p></div>
+                
+
+                <div class="d-grid gap-2 codigos">
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">1. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">3 t * t 5 / |</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">2. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t t 3 << t 2 >> | &</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">3. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 11 / t 2 * ^</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="8000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">4. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 128 % t 62815 / | t 115 / + ^</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="32000" title="Sample Rate">
+                    </div>
+                    
+                    <div class="d-flex">
+                        <small class="p-2 text-secondary">5. </small>
+                        <code class="d-block p-2 text-light col copiar "
+                              contenteditable="true"
+                              title="Click para COPIAR y ACTIVAR">t 205 % t 124 % | t 115 / << ^</code>
+                        <input class="text-center rounded-2 col-1 bg-dark text-secondary mx-1 border-0"
+                               type="number" min="0" name="rate" value="32000" title="Sample Rate">
+                    </div>
+                    
+                </div>
+            </li>
+            
+
+            
+            <div class="utiles">
+                <nav class="d-grid gap-1">
+                    <button class="btn btn-sm btn-secondary" name="play-pause" title="Audio: Play Pause">P</button>
+                    <a class="btn btn-sm btn-secondary external-app"
+                       href="#"
+                       name="open-tb"
+                       data-site="https://dev.eypacha.com/touchbit/"
+                       target="_tbit" title="Abrir en Touchbit">
+
+                        T</a>
+                    <a class="btn btn-sm btn-secondary external-app"
+                       href="#"
+                       name="open-h5bb"
+                       data-site="https://greggman.com/downloads/examples/html5bytebeat/html5bytebeat.html"
+                       target="_h5bb" title="Abrir en HTML5Bytebeat">
+                        H</a>
+                </nav>
+            </div>
+
+            
+        </ul>
+    </div>
+</div>
+
+        </div>
+
+        <footer>
+            <p class="text-center">
+                <a class="btn btn-sm text-success"  href="https://caalma.net.ar">Por CAALMA</a>
+                ·
+                <span class="small px-2">Actualizado el <b>2025-01-27 21:58:06</b></span>
+                ·
+                <a class="btn btn-sm text-success"  href="https://github.com/caalma/exploracion-bytebeat">Disponible en GITHUB </a>
+            </p>
+        </footer>
+
+        <div id="notificacion"></div>
+
+        <script>const compressor = new LZMA( 'https://caalma.github.io/exploracion-bytebeat/lib/js/lzma_worker.js' );</script>
+        <script src="https://caalma.github.io/exploracion-bytebeat/lib/js/init.js" type="module"></script>
+    </body>
+</html>

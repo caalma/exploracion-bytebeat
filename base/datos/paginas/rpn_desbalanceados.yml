@@ -1,8 +1,8 @@
 ---
-
 titulo: 'EsB: RPN desbalanceados'
 html_base: 'listado.html'
 ruta_static: '/pag/rpn_desbalanceados/index.html'
+estilo_de_contenido: 'm-4 text-center'
 
 contenido: |
   # RPN Desbalanceados { .py-4 }

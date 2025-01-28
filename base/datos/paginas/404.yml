@@ -1,5 +1,17 @@
 ---
-
 titulo: 'Caalma - Exploraciones sobre ByteBeat - 404'
-html_base: 'error_404.html'
+html_base: 'pagina.html'
 ruta_static: '/404.html'
+
+estilo_de_contenido: 'm-4 text-center'
+
+contenido: |
+  # ¡ NO está eso aquí ! { .py-5 .text-danger}
+
+  <script>
+    window.addEventListener('load', ev => {
+      setTimeout(()=>{
+        window.location.href = '{{ cfg.urls.site }}';
+      }, 2000);
+    })
+  </script>
