@@ -23,7 +23,6 @@ function getURL(fn=()=>{}) {
                 s: g_byteBeatNode.getDesiredSampleRate(),
                 bb: hex,
             });
-            console.log(`#${params.toString()}`, params);
             fn(`#${params.toString()}`);
         },
         ()=>{}
