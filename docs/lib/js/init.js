@@ -12,22 +12,22 @@ let g_bb_code_r = '';
 let g_actual_code = '';
 
 function getURL(fn=()=>{}) {
-    compressor.compress(g_actual_code, 1,
-                        function(bytes) {
-                            const hex = convertBytesToHex(bytes);
-                            g_ignoreHashChange = true;
-                            const vNdx = 0;
-                            const params = new URLSearchParams({
-                                t: g_byteBeatNode.getType(),
-                                e: g_byteBeatNode.getExpressionType(),
-                                s: g_byteBeatNode.getDesiredSampleRate(),
-                                ...(vNdx > 2 && {v: ''}),
-                                bb: hex,
-                            });
-                            fn(`#${params.toString()}`);
-                        },
-                        ()=>{}
-                       );
+    compressor.compress(
+        g_actual_code.trim(), 1,
+        function(bytes) {
+            const hex = convertBytesToHex(bytes);
+            g_ignoreHashChange = true;
+            const params = new URLSearchParams({
+                t: g_byteBeatNode.getType(),
+                e: g_byteBeatNode.getExpressionType(),
+                s: g_byteBeatNode.getDesiredSampleRate(),
+                bb: hex,
+            });
+            console.log(`#${params.toString()}`, params);
+            fn(`#${params.toString()}`);
+        },
+        ()=>{}
+    );
 }
 
 async function init() {
@@ -268,7 +268,6 @@ function on_load (ev) {
     }
 
     window.addEventListener('keydown', ev => {
-        console.log(ev.key);
         if(ev.altKey){
             if(ev.key == '1' || ev.key == 'i'){
                 btnPortada.click();

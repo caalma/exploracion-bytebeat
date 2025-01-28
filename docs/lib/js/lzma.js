@@ -89,9 +89,7 @@ this.LZMA = function (lzma_path) {
 
     /// Very simple error handling.
     lzma_worker.onerror = function(event) {
-        if(event.message !== undefined){
-            throw new Error(event.message + " (" + event.filename + ":" + event.lineno + ")");
-        }
+        throw new Error(event.message + " (" + event.filename + ":" + event.lineno + ")");
     };
 
     return (function () {
