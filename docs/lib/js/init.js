@@ -186,6 +186,8 @@ function on_load (ev) {
     let inputRate = document.querySelectorAll('[name=rate]');
     let elemsCopiar = document.querySelectorAll('.copiar');
     let notificacion = document.querySelector('#notificacion');
+    let btnPortada = document.querySelector('[name=a_portada]');
+    let btnAyuda = document.querySelector('[name=a_ayuda]');
     codes = document.querySelectorAll('code');
 
     let playPauseActivate = () => {
@@ -247,9 +249,7 @@ function on_load (ev) {
                     document.querySelector('[name=open-h5bb]').click();
                 }
             }
-
         });
-
     }
 
     if(inputRate.length > 0){
@@ -266,6 +266,18 @@ function on_load (ev) {
             });
         });
     }
+
+    window.addEventListener('keydown', ev => {
+        console.log(ev.key);
+        if(ev.altKey){
+            if(ev.key == '1' || ev.key == 'i'){
+                btnPortada.click();
+            }else if(ev.key == '2' || ev.key == 'a'){
+                btnAyuda.click();
+            }
+        }
+    });
+
 }
 
 window.addEventListener('load', on_load);

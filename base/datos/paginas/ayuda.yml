@@ -17,8 +17,11 @@ contenido: |
   5. La utilidad **T** abre la aplicación externa **Touchbit** con el `código-actual`, para escucharlo o editarlo allí.
   6. La utilidad **H** abre la aplicación externa **HTML5Bytebeat** con el `código-actual`, para escucharlo o editarlo allí.
   7. El campo numérico junto a cada campo de código especifíca el _sample rate_ con que se escuchará dicho audio. Al modificarlo, automáticamente se actualizan los enlaces de **T** y **H**, y además, si el audio se está reproduciendo, será afectado con el nuevo _sample rate_.
-  8. Estando dentro de cualquier campo de código existe tres atajos de teclado:
+  8. Estando dentro de cualquier campo de código existe cuatro atajos de teclado:
      - `Alt+p` hace lo mismo que la utilidad **P**,
      - `Alt+t` hace lo mismo que la utilidad **T**,
      - `Alt+h` hace lo mismo que la utilidad **H**,
-     - 'Alt+Enter' hace lo mismo que darle click al campo de código.
+     - `Alt+Enter` hace lo mismo que darle click al campo de código (el item 1).
+  9. Con foco en cualquier elemento de la página, existen otros atajos de teclado:
+    - `Alt+1` o `Alt+i` redirecciona a la página de inicio o portada.
+    - `Alt+2` o `Alt+a` redirecciona a la página de ayuda.
