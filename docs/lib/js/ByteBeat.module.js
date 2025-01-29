@@ -360,7 +360,7 @@ class ByteBeatCompiler {
     try {
       if (expressionType === 3) {  // function
         x = `
-            return function(t, i, stack, window, extra) { 
+            return function(t, i, stack, window, extra) {
                 ${ByteBeatCompiler.strip(x)};
             }`;
       } else {
@@ -372,7 +372,7 @@ class ByteBeatCompiler {
           x = ByteBeatCompiler.postfixToInfix(x);
         } else {  // infix
           x = `
-              return function(t, i, stack, window, extra) { 
+              return function(t, i, stack, window, extra) {
                   return ${ByteBeatCompiler.strip(x)};
               }`;
         }

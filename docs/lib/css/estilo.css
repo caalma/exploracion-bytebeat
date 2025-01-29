@@ -8,6 +8,7 @@ html {
   min-height: 100svh;
 }
 body {
+  position: relative;
   min-height: 100vh;
   min-height: 100svh;
   display: flex;
@@ -100,7 +101,7 @@ footer p {
   animation: titilar_anim 1s infinite;
 }
 #notificacion {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   text-align: right;

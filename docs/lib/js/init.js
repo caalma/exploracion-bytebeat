@@ -11,7 +11,7 @@ let g_bb_code_l = '';
 let g_bb_code_r = '';
 let g_actual_code = '';
 
-function getURL(fn=()=>{}) {
+function getQueryGreggmanStyle(fn=()=>{}) {
     compressor.compress(
         g_actual_code.trim(), 1,
         function(bytes) {
@@ -31,23 +31,30 @@ function getURL(fn=()=>{}) {
 
 async function init() {
     g_context = new AudioContext();
-    await ByteBeatNode.setup(g_context);
-    g_byteBeatNode = new ByteBeatNode(g_context);
-    g_byteBeatNode.setType(ByteBeatNode.Type.byteBeat);
-    g_byteBeatNode.setExpressionType(ByteBeatNode.ExpressionType.postfix);
-    g_byteBeatNode.setDesiredSampleRate(parseInt(g_bb_rate));
-    await updateCode();
+    ByteBeatNode.setup(g_context).then(e => {
+        g_byteBeatNode = new ByteBeatNode(g_context);
+        g_byteBeatNode.setType(ByteBeatNode.Type.byteBeat);
+        g_byteBeatNode.setExpressionType(ByteBeatNode.ExpressionType.postfix);
+        g_byteBeatNode.setDesiredSampleRate(parseInt(g_bb_rate));
+        updateCode().then(e => {
+            console.log('updateCode en init', e);
+        });
+    });
 }
 
 async function reinit() {
     if (g_playing) {
         g_playing = false;
         g_byteBeatNode.disconnect();
-        await init();
-        g_playing = true;
-        g_byteBeatNode.connect(g_context.destination);
+        init().then( e => {
+            console.log('init TRUE', e)
+            g_playing = true;
+            //g_byteBeatNode.connect(g_context.destination);
+        });
     }else{
-        await init();
+        init().then(e => {
+            console.log('init FALSE', e)
+        });
     }
 }
 
@@ -65,7 +72,15 @@ async function info() {
 async function updateCode() {
     if (g_context) {
         let codes = g_bb_code_r === undefined ? [g_bb_code_l] : [g_bb_code_l, g_bb_code_r];
-        await g_byteBeatNode.setExpressions(codes);
+        if(g_byteBeatNode){
+            g_byteBeatNode.setExpressions(codes)
+                .then(e => {
+                    console.log('updateCode interno', e);
+                })
+                .catch(e => {
+                    console.log('updateCode interno error', e);
+                });
+        }
     }
 }
 
@@ -80,14 +95,21 @@ async function asyncSetRate(rt) {
     await reinit();
 }
 
-async function playPause() {
-    if (!g_context) { await init(); }
-    if (!g_playing) {
-        g_playing = true;
-        g_byteBeatNode.connect(g_context.destination);
-    } else {
-        g_playing = false;
-        g_byteBeatNode.disconnect();
+function playPause() {
+    const aplicar = () => {
+        if(g_byteBeatNode){
+            if (!g_playing) {
+                g_byteBeatNode.connect(g_context.destination);
+            } else {
+                g_byteBeatNode.disconnect();
+            }
+            g_playing = !g_playing;
+        }
+    }
+    if (!g_context) {
+        init().then(aplicar);
+    }else{
+        aplicar();
     }
 }
 
@@ -120,7 +142,7 @@ function copiarAlPortapapeles(texto) {
 function configureExternalsApp(){
     setTimeout(()=>{
         bb.reinit();
-        getURL(query => {
+        getQueryGreggmanStyle(query => {
             let elems = document.querySelectorAll('.external-app');
             if(query !== 'None'){
                 elems.forEach(elem => {
@@ -138,17 +160,19 @@ function configureExternalsApp(){
                 });
             }
         });
-    }, 100);
+    }, 200);
 }
 
-function setCodeActual(elem){
+async function setCodeActual(elem){
     let cAct = 'code-actual';
     codes.forEach(e => {
         e.parentElement.classList.remove(cAct);
     });
     elem.parentElement.classList.add(cAct);
     g_bb_rate = parseInt(elem.parentElement.querySelector('[name=rate]').value);
-    try { bb.setRate(g_bb_rate); } catch (err) { }
+    try {
+       asyncSetRate(g_bb_rate);
+    } catch (err) { }
     g_actual_code = elem.textContent;
     bb.setCode(g_actual_code);
 }
@@ -177,7 +201,7 @@ function on_load (ev) {
         'setRate': asyncSetRate,
         'playPause': playPause,
         'info': info,
-        'getURL': getURL,
+        'getQueryGreggmanStyle': getQueryGreggmanStyle,
         'isplay': () => g_playing,
     };
 
@@ -189,9 +213,19 @@ function on_load (ev) {
     let btnAyuda = document.querySelector('[name=a_ayuda]');
     codes = document.querySelectorAll('code');
 
+    let setBtnPlayPause = () => {
+        if(bb.isplay()){
+            btnPlayPause.classList.add('btn-danger');
+            btnPlayPause.classList.remove('btn-warning');
+        }else{
+            btnPlayPause.classList.add('btn-warning');
+            btnPlayPause.classList.remove('btn-danger');
+        }
+    };
+
     let playPauseActivate = () => {
         btnPlayPause.classList.remove('btn-secondary');
-        btnPlayPause.classList.add('btn-warning');
+        setBtnPlayPause();
     };
 
     if(elemsCopiar.length > 0){
@@ -210,30 +244,26 @@ function on_load (ev) {
                 return;
             }
             bb.playPause();
-            if(bb.isplay()){
-                elem.classList.add('btn-danger');
-                elem.classList.remove('btn-warning');
-            }else{
-                elem.classList.add('btn-warning');
-                elem.classList.remove('btn-danger');
-            }
+            setBtnPlayPause();
         });
     }
 
     if(codes.length > 0){
+        const putCode = (elem) => {
+            setCodeActual(elem);
+            playPauseActivate();
+            setBtnPlayPause();
+            configureExternalsApp();
+        }
         codes.forEach(elem => {
-            ['click', 'change'].forEach(evType => {
+            ['click'].forEach(evType => {
                 elem.addEventListener(evType, ev => {
-                    setCodeActual(elem);
-                    playPauseActivate();
-                    configureExternalsApp();
+                    putCode(elem);
                 });
             });
             elem.addEventListener('keydown', ev => {
                 if(ev.key == 'Enter' && ev.altKey){
-                    setCodeActual(elem);
-                    playPauseActivate();
-                    configureExternalsApp();
+                    putCode(elem);
                 }
             });
         });
@@ -253,15 +283,13 @@ function on_load (ev) {
 
     if(inputRate.length > 0){
         inputRate.forEach(elem => {
-            ['change', 'click', 'keyup'].forEach(evType => {
-                elem.addEventListener(evType, ev => {
-                    if(g_context){
-                        if(isCodeActual(elem)){
-                            bb.setRate(parseInt(elem.value));
-                            configureExternalsApp();
-                        }
+            elem.addEventListener('input', ev => {
+                if(g_context){
+                    if(isCodeActual(elem)){
+                        bb.setRate(parseInt(elem.value));
+                        configureExternalsApp();
                     }
-                });
+                }
             });
         });
     }
