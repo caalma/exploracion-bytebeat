@@ -1,27 +1,29 @@
 import ByteBeatNode from './ByteBeat.module.js';
 import { convertBytesToHex, convertHexToBytes } from './utils.js';
+import { copiarAlPortapapeles } from  './comun.js';
 
-let doNotSetURL = false;
-let g_ignoreHashChange;
-let g_context;
-let g_byteBeatNode;
-let g_playing = false;
-let g_bb_rate = 8000;
-let g_bb_code_l = '';
-let g_bb_code_r = '';
-let g_actual_code = '';
+let g_context,
+    g_byteBeat,
+    g_playing = false,
+    g_rate = 8000,
+    g_code_l = '', // para sonido stereo, a futuro
+    g_code_r = '', // para sonido stereo, a futuro
+    g_code_actual = '',
+    g_debug = false;
+
+function a_consola(...args){
+    if(g_debug) console.log(...args);
+}
 
 function getQueryGreggmanStyle(fn=()=>{}) {
     compressor.compress(
-        g_actual_code.trim(), 1,
+        g_code_actual.trim(), 1,
         function(bytes) {
-            const hex = convertBytesToHex(bytes);
-            g_ignoreHashChange = true;
             const params = new URLSearchParams({
-                t: g_byteBeatNode.getType(),
-                e: g_byteBeatNode.getExpressionType(),
-                s: g_byteBeatNode.getDesiredSampleRate(),
-                bb: hex,
+                t: g_byteBeat.getType(),
+                e: g_byteBeat.getExpressionType(),
+                s: g_byteBeat.getDesiredSampleRate(),
+                bb: convertBytesToHex(bytes),
             });
             fn(`#${params.toString()}`);
         },
@@ -32,12 +34,12 @@ function getQueryGreggmanStyle(fn=()=>{}) {
 async function init() {
     g_context = new AudioContext();
     ByteBeatNode.setup(g_context).then(e => {
-        g_byteBeatNode = new ByteBeatNode(g_context);
-        g_byteBeatNode.setType(ByteBeatNode.Type.byteBeat);
-        g_byteBeatNode.setExpressionType(ByteBeatNode.ExpressionType.postfix);
-        g_byteBeatNode.setDesiredSampleRate(parseInt(g_bb_rate));
+        g_byteBeat = new ByteBeatNode(g_context);
+        g_byteBeat.setType(ByteBeatNode.Type.byteBeat);
+        g_byteBeat.setExpressionType(ByteBeatNode.ExpressionType.postfix);
+        g_byteBeat.setDesiredSampleRate(parseInt(g_rate));
         updateCode().then(e => {
-            console.log('updateCode en init', e);
+            a_consola('updateCode en init', e);
         });
     });
 }
@@ -45,107 +47,87 @@ async function init() {
 async function reinit() {
     if (g_playing) {
         g_playing = false;
-        g_byteBeatNode.disconnect();
+        g_byteBeat.disconnect();
         init().then( e => {
-            console.log('init TRUE', e)
+            console.log('init TRUE, en reinit', e)
             g_playing = true;
-            //g_byteBeatNode.connect(g_context.destination);
+            setTimeout(()=>{
+                g_byteBeat.connect(g_context.destination);
+            }, 300);
         });
     }else{
         init().then(e => {
-            console.log('init FALSE', e)
+            a_consola('init FALSE, en reinit', e)
         });
     }
 }
 
+
 async function info() {
     console.log({
-        'gbb': g_byteBeatNode,
-        'rate': g_byteBeatNode.getDesiredSampleRate(),
-        'time': g_byteBeatNode.getTime(),
-        'type': g_byteBeatNode.getType(),
-        'n channles': g_byteBeatNode.getNumChannels(),
-        'expresion type': g_byteBeatNode.getExpressionType(),
+        'gbb': g_byteBeat,
+        'rate': g_byteBeat.getDesiredSampleRate(),
+        'time': g_byteBeat.getTime(),
+        'type': g_byteBeat.getType(),
+        'n_channles': g_byteBeat.getNumChannels(),
+        'expresion_type': g_byteBeat.getExpressionType(),
     });
 }
 
 async function updateCode() {
     if (g_context) {
-        let codes = g_bb_code_r === undefined ? [g_bb_code_l] : [g_bb_code_l, g_bb_code_r];
-        if(g_byteBeatNode){
-            g_byteBeatNode.setExpressions(codes)
+        let codes = g_code_r === undefined ? [g_code_l] : [g_code_l, g_code_r];
+        if(g_byteBeat){
+            g_byteBeat.setExpressions(codes)
                 .then(e => {
-                    console.log('updateCode interno', e);
+                    a_consola('updateCode interno', e);
                 })
                 .catch(e => {
-                    console.log('updateCode interno error', e);
+                    a_consola('updateCode interno error', e);
                 });
         }
     }
 }
 
 async function asyncSetCode(cl, cr) {
-    g_bb_code_l = cl;
-    g_bb_code_r = cr;
+    g_code_l = cl;
+    g_code_r = cr;
     await updateCode();
 }
 
 async function asyncSetRate(rt) {
-    g_bb_rate = rt;
+    g_rate = rt;
     await reinit();
 }
 
-function playPause() {
+async function asyncPlayPause() {
     const aplicar = () => {
-        if(g_byteBeatNode){
+        if(g_byteBeat){
             if (!g_playing) {
-                g_byteBeatNode.connect(g_context.destination);
+                g_byteBeat.connect(g_context.destination);
             } else {
-                g_byteBeatNode.disconnect();
+                g_byteBeat.disconnect();
             }
-            g_playing = !g_playing;
         }
+        g_playing = !g_playing;
     }
+
     if (!g_context) {
-        init().then(aplicar);
+        init().then(e=>{
+            a_consola('init sin g_context, en playPause', e);
+            aplicar();
+        });
     }else{
         aplicar();
     }
 }
 
-function copiarAlPortapapeles(texto) {
-     if (navigator.clipboard && window.isSecureContext) {
-         return navigator.clipboard.writeText(texto).then(() => {
-             console.info('Copiado al portapapeles');
-         }).catch(err => {
-             console.error('Error al copiar al portapapeles: ', err);
-         });
-     } else {
-         let textArea = document.createElement("textarea");
-         textArea.value = texto;
-         textArea.style.position = "fixed";
-         textArea.style.left = "-999999px";
-         document.body.appendChild(textArea);
-         textArea.focus();
-         textArea.select();
-         return new Promise((resolve, reject) => {
-             document.execCommand('copy') ? resolve() : reject();
-             document.body.removeChild(textArea);
-         }).then(() => {
-             console.info('Copiado al portapapeles');
-         }).catch(err => {
-             console.error('Error al copiar al portapapeles: ', err);
-         });
-     }
-}
-
 function configureExternalsApp(){
     setTimeout(()=>{
-        bb.reinit();
         getQueryGreggmanStyle(query => {
-            let elems = document.querySelectorAll('.external-app');
-            if(query !== 'None'){
-                elems.forEach(elem => {
+            let elementos = document.querySelectorAll('.external-app');
+            if(query !== 'None' || query !== undefined){
+                elementos.forEach(elem => {
                     elem.setAttribute('href', elem.getAttribute('data-site') + query);
                     elem.classList.add('btn-success', 'titilar');
                     elem.classList.remove('btn-secondary');
@@ -154,7 +136,7 @@ function configureExternalsApp(){
                     }, 1000);
                 });
             }else{
-                elems.forEach(elem => {
+                elementos.forEach(elem => {
                     elem.classList.add('btn-secondary');
                     elem.classList.remove('btn-success');
                 });
@@ -163,18 +145,18 @@ function configureExternalsApp(){
     }, 200);
 }
 
-async function setCodeActual(elem){
+function setCodeActual(elem){
     let cAct = 'code-actual';
     codes.forEach(e => {
         e.parentElement.classList.remove(cAct);
     });
     elem.parentElement.classList.add(cAct);
-    g_bb_rate = parseInt(elem.parentElement.querySelector('[name=rate]').value);
+    g_rate = parseInt(elem.parentElement.querySelector('[name=rate]').value);
     try {
-       asyncSetRate(g_bb_rate);
+       asyncSetRate(g_rate);
     } catch (err) { }
-    g_actual_code = elem.textContent;
-    bb.setCode(g_actual_code);
+    g_code_actual = elem.textContent;
+    asyncSetCode(g_code_actual);
 }
 
 function isCodeActual(elem){
@@ -182,27 +164,43 @@ function isCodeActual(elem){
     return elem.parentElement.classList.contains(cAct);
 }
 
-function notificar(texto){
+function notificar(texto, ocultar=true){
     let cAct = 'activa';
-    notificacion.innerText = texto;
+    notificacion.innerHTML = texto;
     notificacion.classList.add(cAct);
-    setTimeout(()=>{
-        notificacion.classList.remove(cAct);
-    }, 700);
+    if(ocultar){
+        setTimeout(()=>{
+            notificacion.classList.remove(cAct);
+        }, 700);
+    }
 }
+
+function loopRender() {
+		requestAnimationFrame(loopRender);
+		if (g_playing) showTime();
+	}
+
+async function showTime (){
+	let time = g_byteBeat.getTime();
+    notificar(`<small>t -></small> <span>${time}</span>`, false);
+};
+
 
 var codes;
 
 function on_load (ev) {
-    window.bb = {
+
+    window.bb = { // interfaz pública
         'init': init,
         'reinit': reinit,
         'setCode': asyncSetCode,
         'setRate': asyncSetRate,
-        'playPause': playPause,
+        'playPause': asyncPlayPause,
         'info': info,
         'getQueryGreggmanStyle': getQueryGreggmanStyle,
         'isplay': () => g_playing,
+        'byteBeat': g_byteBeat,
+        'context': g_context,
     };
 
     let btnPlayPause = document.querySelector('[name=play-pause]');
@@ -213,14 +211,18 @@ function on_load (ev) {
     let btnAyuda = document.querySelector('[name=a_ayuda]');
     codes = document.querySelectorAll('code');
 
+    loopRender();
+
     let setBtnPlayPause = () => {
-        if(bb.isplay()){
-            btnPlayPause.classList.add('btn-danger');
-            btnPlayPause.classList.remove('btn-warning');
-        }else{
-            btnPlayPause.classList.add('btn-warning');
-            btnPlayPause.classList.remove('btn-danger');
-        }
+        setTimeout(()=>{
+            if(g_playing){
+                btnPlayPause.classList.add('btn-danger');
+                btnPlayPause.classList.remove('btn-warning');
+            }else{
+                btnPlayPause.classList.add('btn-warning');
+                btnPlayPause.classList.remove('btn-danger');
+            }
+        }, 200);
     };
 
     let playPauseActivate = () => {
@@ -243,7 +245,7 @@ function on_load (ev) {
             if(elem.classList.contains('btn-secondary')){
                 return;
             }
-            bb.playPause();
+            asyncPlayPause();
             setBtnPlayPause();
         });
     }

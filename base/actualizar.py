@@ -87,7 +87,7 @@ with open(ar_cfg_in, 'r') as f:
     dat_cfg = yaml.safe_load(f)
 
 # ------  completado de plantillas
-fl = FileSystemLoader('plantillas')
+fl = FileSystemLoader('plantillas/html')
 env_jinja2 = Environment(loader=fl)
 
 env_jinja2.globals.update(markdown = md_a_html)

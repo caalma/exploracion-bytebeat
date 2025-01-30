@@ -9,15 +9,27 @@
     <div>
         <ul class="lista-bb p-0">
             {% for item in pag.lista_bb %}
+            {% set i = loop.index %}
             <li class="list-group my-3 py-2">
-                {% if item.comment %}
-                <div class="small mt-4 px-2 rounded-1">{{ markdown((item.comment)) }}</div>
+                {% if item.text %}
+                <div class="small mt-4 px-2 rounded-1">
+                    <div class="d-flex">
+                        {% if not item.code %}
+                        <div class="text-secondary px-2">{{ i }}. </div>
+                        {% endif %}
+                        <div class="col">{{ markdown((item.text)) }}</div>
+                    </div>
+                </div>
                 {% endif %}
+
+                {% if item.code %}
 
                 <div class="d-grid gap-2 codigos">
                     {% for code in item.code %}
+                    {% set j = loop.index %}
+
                     <div class="d-flex">
-                        <small class="p-2 text-secondary">{{ loop.index }}. </small>
+                        <small class="p-2 text-secondary">{{ i }}.{{ j }}. </small>
                         <code class="d-block p-2 text-light col copiar "
                               contenteditable="true" spellcheck="false"
                               title="Click para COPIAR y ACTIVAR">{{ code[0] }}</code>
@@ -26,6 +38,7 @@
                     </div>
                     {% endfor %}
                 </div>
+                {% endif %}
             </li>
             {% endfor %}
 

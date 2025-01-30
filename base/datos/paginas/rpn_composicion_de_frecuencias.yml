@@ -12,7 +12,7 @@ lista_bb:
       - [t 1 <<, 8000]
       - [t 3 <<, 8000]
       - [t 5 <<, 8000]
-    comment: |
+    text: |
       Ajuste de frecuencia.
 
   - code:
@@ -20,7 +20,7 @@ lista_bb:
       - [10 t <<, 8000]
       - [100 t <<, 8000]
       - [1000 t <<, 8000]
-    comment: |
+    text: |
       Ajuste de intensidad.
 
   - code:
@@ -39,7 +39,7 @@ lista_bb:
 
   - code:
       - [t 2 >> t 3 >> t 5 >> ^ &, 8000]
-    comment: |
+    text: |
       Ruido grueso.
 
 
@@ -62,8 +62,7 @@ lista_bb:
       - [t 7 % t 11 % t 19 % | |, 8000]
       - [t 5 % t 13 % ^, 8000]
       - [t 7 % t 11 % t 19 % ^ ^, 8000]
-
-    comment: |
+    text: |
       **1** y **2** se suavizan, **3** y **4** se refuerzan. ¿?
 
   - code:

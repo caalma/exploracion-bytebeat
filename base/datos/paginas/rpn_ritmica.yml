@@ -23,17 +23,17 @@ lista_bb:
   - code:
       - [t * t t * / & 27 *, 8000]
       - [t * t t * / & 3 <<, 8000]
-    comment: |
+    text: |
       Pulso que se acelera.
 
   - code:
       - [t t t 5 >> t 3 >> t 9 >> >> >> <<, 8000]
-    comment: |
+    text: |
       Regular e irregular.
 
   - code:
       - [t 2 >> t 3 >> << t 5 >> t 7 >> << t 11 >> t 13 >> << + + t t ~ * * 32 %, 8000]
-    comment: |
+    text: |
       Ruidoso y agotándose.
 
   - code:
@@ -46,7 +46,7 @@ lista_bb:
   - code:
       - [t t 11 >> 25 ^ >> t << 32640 ^ t 6 >> <<, 11000]
       - [t t 12 >> 14 & >> t * 128 & t 5 >> >>, 11000]
-    comment: |
+    text: |
       **1** es autoria de [Ey Pacha](https://github.com/eypacha), **2** es un variante personal.
 
   - code:
@@ -54,7 +54,7 @@ lista_bb:
       - [t 0.5 * t -0.3 * + t 0.4 * + t -0.25 * +, 8000]
       - [t 0.5 * t -0.3 * + t 0.4 * + t -0.25 * ~, 8000]
       - [t 0.5 * t -0.3 * + t 0.4 * + t -0.25 * + t 7 >> <<, 8000]
-    comment: |
+    text: |
       **1** parece ruido de vinilo.
 
 
@@ -69,40 +69,40 @@ lista_bb:
 
   - code:
       - [t 1629 % t 97 / | t 93 / | <<, 32000]
-    comment: |
+    text: |
       Radar o el chavo llorando.
 
   - code:
       - [t 51 / t 170 % | t 3 * |, 8000]
-    comment: |
+    text: |
       Loop rítmico de cuerdas, o similar.
 
   - code:
       - [t 192 / t 22 % ^ | t 6 % | t 47 / >>, 8000]
-    comment: |
+    text: |
       Ritmo oscilante.
 
   - code:
       - [t 192 / t 22 % ^ | t 6 % |, 8000]
-    comment: |
+    text: |
       Repetitivo acompañado de nota aguda.
 
   - code:
       - [t t * 11 % t &, 8000]
-    comment: |
+    text: |
       Sonidos alternos con velocidad rítmica creciente.
 
   - code:
       - [t 2 / t 3 / t 5 / | |, 8000]
       - [t 5 / t 2 / t 5 / | |, 8000]
-    comment: |
+    text: |
       Cambio de acento.
 
   - code:
       - [t 2 % t 11 / -, 8000]
       - [t 2 % t 22 / -, 8000]
       - [t 2 % t 33 / -, 8000]
-    comment: |
+    text: |
       Regular, como un metrónomo.
 
   - code:
@@ -112,7 +112,7 @@ lista_bb:
       - [t 128 % t 62815 / | t 115 / + ^, 32000]
       - [t 205 % t 124 % | t 115 / << ^, 32000]
 
-    comment: |
+    text: |
       Ciclos breves y regulares.
 
       **4** a ritmo de sirenea, **5** a ritmo de helicóptero

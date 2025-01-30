@@ -20,8 +20,8 @@ def main():
 
     # documentos donde considerar cambios automáticos
     server.watch('./datos/', shell('./actualizar.py local'))
-    server.watch('./plantillas/', shell('./actualizar.py local'))
-    server.watch('./lib-css/', shell('lessc ./lib-css/estilo.less', output='../docs/lib/css/estilo.css'))
+    server.watch('./plantillas/html/', shell('./actualizar.py local'))
+    server.watch('./plantillas/css/', shell('lessc ./plantillas/css/estilo.less', output='../docs/lib/css/estilo.css'))
     server.watch('../docs/lib/', shell(''))
     server.watch('../docs/lib/css/', shell(''))
     server.watch('../docs/lib/js/', shell(''))

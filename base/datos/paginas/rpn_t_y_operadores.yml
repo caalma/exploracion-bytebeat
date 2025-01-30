@@ -15,7 +15,7 @@ lista_bb:
       - [t /, 8000]
       - [t +, 8000]
       - [t -, 8000]
-    comment: |
+    text: |
       Con un solo operador.
 
   - code:
@@ -37,7 +37,7 @@ lista_bb:
 
   - code:
       - [t t t t t t t t << >> << >> << >> << >>, 8000]
-    comment: |
+    text: |
       Aislando operandos y operadores.
 
   - code:

@@ -7,6 +7,15 @@ estilo_de_contenido: 'm-4 text-center'
 contenido: |
   # RPN sin clasificar { .py-4 }
 
-  ...
 
-lista_bb: []
+
+lista_bb:
+  - text: |
+      Espacio donde se acumulan expresiones recientes, a la espera de agruparse con otras en archivo aparte.
+
+  - code:
+      - [t 111 % 34 < t 55 % 12 > | t swap >> 8 /, 6000]
+
+  - code:
+      - [t 129 % 32 < t 125 % 16 < t 191 % 64 < | | t 5 >> swap >> 32 /, 48000]
+      - [t 129 % 32 > t 125 % 16 > t 191 % 64 > | | t 5 >> swap << 32 /, 48000]
