@@ -14,9 +14,7 @@
                 {% if item.text %}
                 <div class="small mt-4 px-2 rounded-1">
                     <div class="d-flex">
-                        {% if not item.code %}
                         <div class="text-secondary px-2">{{ i }}. </div>
-                        {% endif %}
                         <div class="col">{{ markdown((item.text)) }}</div>
                     </div>
                 </div>
