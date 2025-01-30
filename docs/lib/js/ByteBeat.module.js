@@ -1154,17 +1154,9 @@ class ByteBeatNode extends AudioWorkletNode {
     destroyStack(id) {
         return this.#callAsync('destroyStack', id);
     }
+
     async destroyContext(id) {
         return await this.#callAsync('destroyContext', id);
-    }
-
-    async getSampleForTime(time, contextId, stackId, channel = 0) {
-
-        if (this.#busyPromise) {
-            await this.#busyPromise;
-        }
-        let sample = await this.#callAsync('getSampleForTime', time, contextId, stackId, channel);
-        return sample
     }
 
     async getSamplesForTimeRange(start, end, step, contextId, stackId, channel) {
