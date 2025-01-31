@@ -23,3 +23,14 @@ export function copiarAlPortapapeles(texto) {
          });
      }
 }
+
+export function atajosDeTeclado(acciones={}, ev=undefined) {
+    const alt = ev.altKey ? 'A+' : '';
+    const ctrl = ev.ctrlKey ? 'C+' : '';
+    const shift = ev.shiftKey ? 'S+' : '';
+    const k = ctrl+alt+shift+ev.key;
+    if(acciones.hasOwnProperty(k)){
+        console.log(k)
+        acciones[k]();
+    }
+}

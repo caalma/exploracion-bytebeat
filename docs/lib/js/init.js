@@ -1,6 +1,6 @@
 import ByteBeatNode from './ByteBeat.module.js';
 import { convertBytesToHex, convertHexToBytes } from './utils.js';
-import { copiarAlPortapapeles } from  './comun.js';
+import { copiarAlPortapapeles, atajosDeTeclado } from  './comun.js';
 
 let g_context,
     g_byteBeat,
@@ -9,9 +9,10 @@ let g_context,
     g_code_l = '', // para sonido stereo, a futuro
     g_code_r = '', // para sonido stereo, a futuro
     g_code_actual = '',
-    g_debug = false;
+    g_debug = false,
+    codes;
 
-function a_consola(...args){
+function aConsola(...args){
     if(g_debug) console.log(...args);
 }
 
@@ -39,7 +40,7 @@ async function init() {
         g_byteBeat.setExpressionType(ByteBeatNode.ExpressionType.postfix);
         g_byteBeat.setDesiredSampleRate(parseInt(g_rate));
         updateCode().then(e => {
-            a_consola('updateCode en init', e);
+            aConsola('updateCode en init', e);
         });
     });
 }
@@ -57,15 +58,14 @@ async function reinit() {
         });
     }else{
         init().then(e => {
-            a_consola('init FALSE, en reinit', e)
+            aConsola('init FALSE, en reinit', e)
         });
     }
 }
 
-
 async function info() {
     console.log({
-        'gbb': g_byteBeat,
+        'byteBeat': g_byteBeat,
         'rate': g_byteBeat.getDesiredSampleRate(),
         'time': g_byteBeat.getTime(),
         'type': g_byteBeat.getType(),
@@ -80,10 +80,10 @@ async function updateCode() {
         if(g_byteBeat){
             g_byteBeat.setExpressions(codes)
                 .then(e => {
-                    a_consola('updateCode interno', e);
+                    aConsola('updateCode interno', e);
                 })
                 .catch(e => {
-                    a_consola('updateCode interno error', e);
+                    aConsola('updateCode interno error', e);
                 });
         }
     }
@@ -111,10 +111,9 @@ async function asyncPlayPause() {
         }
         g_playing = !g_playing;
     }
-
     if (!g_context) {
         init().then(e=>{
-            a_consola('init sin g_context, en playPause', e);
+            aConsola('init sin g_context, en playPause', e);
             aplicar();
         });
     }else{
@@ -185,9 +184,6 @@ async function showTime (){
     notificar(`<small>t -></small> <span>${time}</span>`, false);
 };
 
-
-var codes;
-
 function on_load (ev) {
 
     window.bb = { // interfaz pública
@@ -213,7 +209,7 @@ function on_load (ev) {
 
     loopRender();
 
-    let setBtnPlayPause = () => {
+    const setBtnPlayPause = () => {
         setTimeout(()=>{
             if(g_playing){
                 btnPlayPause.classList.add('btn-danger');
@@ -225,7 +221,7 @@ function on_load (ev) {
         }, 200);
     };
 
-    let playPauseActivate = () => {
+    const playPauseActivate = () => {
         btnPlayPause.classList.remove('btn-secondary');
         setBtnPlayPause();
     };
@@ -264,22 +260,18 @@ function on_load (ev) {
                 });
             });
             elem.addEventListener('keydown', ev => {
-                if(ev.key == 'Enter' && ev.altKey){
-                    putCode(elem);
-                }
+                atajosDeTeclado({
+                    'A+Enter': () => putCode(elem),
+                }, ev);
             });
         });
 
         window.addEventListener('keydown', ev => {
-            if(ev.altKey){
-                if(ev.key == 'p'){
-                    btnPlayPause.click();
-                }else if(ev.key == 't'){
-                    document.querySelector('[name=open-tb]').click();
-                }else if(ev.key == 'h'){
-                    document.querySelector('[name=open-h5bb]').click();
-                }
-            }
+            atajosDeTeclado({
+                'A+p': () => btnPlayPause.click(),
+                'A+t': () => document.querySelector('[name=open-tb]').click(),
+                'A+h': () => document.querySelector('[name=open-h5bb]').click(),
+            }, ev);
         });
     }
 
@@ -297,13 +289,10 @@ function on_load (ev) {
     }
 
     window.addEventListener('keydown', ev => {
-        if(ev.altKey){
-            if(ev.key == '1' || ev.key == 'i'){
-                btnPortada.click();
-            }else if(ev.key == '2' || ev.key == 'a'){
-                btnAyuda.click();
-            }
-        }
+        atajosDeTeclado({
+            'A+i': () => btnPortada.click(),
+            'A+a': () => btnAyuda.click(),
+        }, ev);
     });
 
 }
