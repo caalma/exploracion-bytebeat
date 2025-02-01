@@ -10,7 +10,7 @@ def main():
     actualizar_todo('local')
 
     # variables básicas
-    h, p, l = '127.0.0.1', 8099, 35729
+    h, p, l = '127.0.0.1', 8097, 35728
 
     # apertura en navegador predeterminado local
     webbrowser.open(f'http://{h}:{p}')
