@@ -7,8 +7,6 @@ estilo_de_contenido: 'm-4 text-center'
 contenido: |
   # RPN sin clasificar { .py-4 }
 
-
-
 lista_bb:
   - text: |
       Espacio donde se acumulan expresiones recientes, a la espera de agruparse con otras en archivo aparte.
@@ -48,3 +46,31 @@ lista_bb:
       - [t t >> 9 >> t 7 >> | t t 190 % ^ | t 19 >> +, 48000]
     text: |
       Empieza limpio, y a los 500000 se llena de ruido,
+
+  - code:
+      - [t 37 % t 21 % + t 6 >> ~ + t 2 % >>, 8000]
+      - [t 19 % t 7 % t 5 % t 3 % + - - + 2 << t 128 / |, 8000]
+
+  - code:
+      - [t 256 / t 2 / t 130 / t 8 / t 4 / t 5 % pick 7 >> t swap <<, 48000]
+      - [t 16 / t 256 / t 2 / t 8 / t 130 / t 4 / t 6 % pick 6 >> t swap <<, 48000]
+      - [t 16 / t 256 / t 2 / t 8 / t 130 / t 4 / t 6 % pick 10 >> t swap <<, 48000]
+
+  - code:
+      - [t t t t t << >> >> << 32 >>, 8000]
+      - [t t t t t << >> >> << 32 *, 8000]
+      - [t t t t t << << << << 64 /, 8000]
+      - [t t t t t << << >> << 64 /, 8000]
+
+  - code:
+      - [t t t t t t t >> << >> << >> >> 16 /, 8000]
+      - [t t t t t t t % >> / << >> / 4 /, 8000]
+      - [t t t t t t t >> << * << >> | 165 /, 8000]
+
+  - code:
+      - [t t * t t + t t * t 3 % pick 57 >>, 8000]
+      - [t t * t t + t t * t 3 % pick 57 %, 8000]
+
+  - code:
+      - [t t t t + * + 9 >>, 8179]
+      - [t t t t + * << 13 >>, 8179]
