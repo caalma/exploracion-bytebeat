@@ -18,10 +18,15 @@ lista_bb:
     text: |
       Con un solo operador.
 
+
   - code:
       - [t << t t >> | <<, 4000]
       - [t >> t t >> + -, 4000]
       - [t * t t ~ * /, 32000]
+    text: |
+      Tanto el primero operador como el último están desbalanceados (tienen menos operandos que los requeridos por el operador), pero la implementación de Greggman lo permite y genera sonido igualmente.
+
+  - code:
       - [t | t ^ t >>, 8000]
 
   - code:
