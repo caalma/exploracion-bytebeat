@@ -47,7 +47,7 @@ lista_bb:
       - [t t 11 >> 25 ^ >> t << 32640 ^ t 6 >> <<, 11000]
       - [t t 12 >> 14 & >> t * 128 & t 5 >> >>, 11000]
     text: |
-      **1** es autoria de [Ey Pacha](https://github.com/eypacha), **2** es un variante personal.
+      **1** es autoria de [Federico Scalia](https://github.com/eypacha){target=_blank}, **2** es un variante personal.
 
   - code:
       - [t 0.5 * t -0.3 * + t 0.4 * & t -0.14 * +, 8000]
