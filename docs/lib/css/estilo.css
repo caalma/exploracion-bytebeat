@@ -24,12 +24,11 @@ body.bloqueado {
 .contenido {
   padding-bottom: 100px;
 }
-.link {
+a {
   text-decoration: none;
-  color: #999;
+  color: #9d9;
 }
-.link:hover {
-  color: #aaa;
+a:hover {
   text-decoration: underline;
 }
 .lista-bb {

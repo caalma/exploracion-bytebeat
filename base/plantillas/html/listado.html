@@ -14,7 +14,7 @@
                 {% if item.text %}
                 <div class="small mt-4 px-2 rounded-1">
                     <div class="d-flex">
-                        <div class="text-secondary px-2" id="i{{ i }}"><a href="#i{{ i }}" class="link">{{ i }}</a>. </div>
+                        <div class="text-secondary px-2" id="i{{ i }}"><a href="#i{{ i }}">{{ i }}</a>. </div>
                         <div class="col">{{ markdown((item.text)) }}</div>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                     {% set j = loop.index %}
 
                     <div class="d-flex">
-                        <small class="p-2 text-secondary" id="i{{ i }}-{{ j }}"><a href="#i{{ i }}-{{ j }}" class="link">{{ i }}.{{ j }}</a>. </small>
+                        <small class="p-2 text-secondary" id="i{{ i }}-{{ j }}"><a href="#i{{ i }}-{{ j }}">{{ i }}.{{ j }}</a>. </small>
                         <code class="d-block p-2 text-light col copiar "
                               contenteditable="true" spellcheck="false"
                               title="Click para COPIAR y ACTIVAR">{{ code[0] }}</code>
